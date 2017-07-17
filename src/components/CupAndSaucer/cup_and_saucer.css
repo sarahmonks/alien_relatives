@@ -1,0 +1,400 @@
+
+@media screen and (min-width: 210px) and (max-width: 479px) {
+#cup_and_saucer_container{
+top: 3%;
+left: 10%;
+}
+
+#cup_and_saucer_container img.alien_figure, #cup_and_saucer_container img.alien_figure_hands{
+height: 100px;
+}
+
+#cup_and_saucer_container img.alien_figure.show_alien, #cup_and_saucer_container img.alien_figure_hands.show_alien{
+
+height: 225px;
+}
+#cup_and_saucer_container img{
+width: 50%;
+
+}
+}
+@media screen and (min-width: 480px) and (max-width: 719px) { 
+
+#cup_and_saucer_container{
+top: 8%;
+left: 20%;
+}
+
+#cup_and_saucer_container.full_position{
+top: 350px;
+left: 33%;
+width: 453px;
+height: 453px;
+}
+
+}
+
+@media screen and (min-width: 480px) and (max-width: 719px) { 
+
+#cup_and_saucer_container{
+top: 8%;
+left: 20%;
+}
+
+#cup_and_saucer_container.full_position{
+top: 350px;
+left: 33%;
+width: 453px;
+height: 453px;
+}
+
+}
+@media screen and (min-width: 720px){ 
+
+#cup_and_saucer_container{
+top: 8%;
+left: 20%;
+}
+
+#cup_and_saucer_container img.alien_figure, #cup_and_saucer_container img.alien_figure_hands{
+height: 200px;
+}
+
+#cup_and_saucer_container img.alien_figure.show_alien, #cup_and_saucer_container img.alien_figure_hands.show_alien{
+
+height: 453px;
+}
+#cup_and_saucer_container img{
+width: 100%;
+}
+
+#cup_and_saucer_container.full_position{
+top: 350px;
+left: 33%;
+width: 453px;
+height: 453px;
+}
+
+}
+
+#cup_and_saucer_container{
+position: absolute;
+
+width: 20px;
+height: 20px;
+-webkit-transition: width 3s, height 3s, top 3s, right 3s; /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+-moz-transition: width 3s, height 3s, top 3s, left 3s;
+-o-transition: width 3s, height 3s, top 3s, left 3s;
+transition: width 3s, height 3s, top 3s, left 3s;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+
+-webkit-transition-delay: 2s; 
+-moz-transition-delay: 2s; 
+-o-transition-delay: 2s;
+transition-delay: 2s;
+
+z-index: 7;
+}
+
+.play_message{
+position: absolute;
+width: 80px;
+height: 57px;
+bottom: 20%;
+left: 40%;
+opacity: 0;
+padding: 13px 5px 20px 5px;
+font-size: 1.7rem;
+color: #fff;
+text-shadow: 0 0 0 #000, 1px 1px 15px #fff;
+-webkit-border-radius: 50%;
+-moz-border-radius: 50%;
+border-radius: 50%;
+background: none;
+-webkit-transition: opacity 1s; /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+-moz-transition: opacity 1s;
+-o-transition: opacity 1s;
+transition: opacity 1s;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+
+-webkit-transition-delay: 1s; /* Safari */
+-moz-transition-delay: 1s; 
+-o-transition-delay: 1s;
+transition-delay: 1s;
+}
+
+.play_message.show_play_button{
+opacity: 1;
+}
+
+.play_message:active{
+padding: 15px 5px 18px 5px;
+-webkit-box-shadow: inset 0px -1px 5px 0px rgba(0, 0, 0, 0.9),inset 0px -3px 10px 0px rgba(0, 0, 0, 0.7);
+-moz-box-shadow:    inset 0px -1px 5px 0px rgba(0, 0, 0, 0.9),inset 0px -3px 10px 0px rgba(0, 0, 0, 0.7);
+box-shadow:         inset 0px -1px 5px 0px rgba(0, 0, 0, 0.9),inset 0px -3px 10px 0px rgba(0, 0, 0, 0.7);
+}
+
+/*animation for moving the cup and saucer */
+
+.move_animation{
+-webkit-animation-name: move_saucer_animation;
+-webkit-animation-duration: 35s;
+-ms-animation-name: move_saucer_animation;
+-ms-animation-duration: 35s;
+-moz-animation-name: move_saucer_animation;
+-moz-animation-duration: 35s;
+-o-animation-name: move_saucer_animation;
+-o-animation-duration: 35s;
+animation-name: move_saucer_animation;
+animation-duration: 35s;
+}
+
+
+@-webkit-keyframes move_saucer_animation{
+0% 
+{top: 8%;left: 20%;width: 20px;height: 20px;
+-webkit-transform: rotate(10deg); }
+5%
+{-webkit-transform: rotate(10deg); }
+8%
+{-webkit-transform: rotate(-10deg); }
+9%
+{top: 25%;left: 75%;width: 80px;height: 80px;}
+14%
+{-webkit-transform: rotate(-10deg); }
+17%
+{-webkit-transform: rotate(10deg); 
+top: 33%;left: 10%;width: 180px;height: 180px;}
+25%
+{top: 350px;left: 33%;width: 453px;height: 453px;
+-webkit-transform: rotate(0deg); }
+100% 
+{top: 350px;left: 33%;width: 453px;height: 453px;
+-webkit-transform: rotate(0deg); }
+}
+
+@-moz-keyframes move_saucer_animation{
+0% 
+{top: 8%;left: 20%;width: 20px;height: 20px;
+-moz-transform: rotate(10deg); }
+5%
+{-moz-transform: rotate(10deg); }
+8%
+{-moz-transform: rotate(-10deg); }
+9%
+{top: 25%;left: 75%;width: 80px;height: 80px;}
+14%
+{-moz-transform: rotate(-10deg); }
+17%
+{-moz-transform: rotate(10deg); 
+top: 33%;left: 10%;width: 180px;height: 180px;}
+25%
+{top: 350px;left: 33%;width: 453px;height: 453px;
+-moz-transform: rotate(0deg); }
+100% 
+{top: 350px;left: 33%;width: 453px;height: 453px;
+-moz-transform: rotate(0deg); }
+}
+
+
+@-o-keyframes move_saucer_animation{
+0% 
+{top: 8%;left: 20%;width: 20px;height: 20px;
+-o-transform: rotate(10deg); }
+5%
+{-o-transform: rotate(10deg); }
+8%
+{-o-transform: rotate(-10deg); }
+9%
+{top: 25%;left: 75%;width: 80px;height: 80px;}
+14%
+{-o-transform: rotate(-10deg); }
+17%
+{-o-transform: rotate(10deg); 
+top: 33%;left: 10%;width: 180px;height: 180px;}
+25%
+{top: 350px;left: 33%;width: 453px;height: 453px;
+-o-transform: rotate(0deg); }
+100% 
+{top: 350px;left: 33%;width: 453px;height: 453px;
+-o-transform: rotate(0deg); }
+}
+@keyframes move_saucer_animation{
+0%
+{top: 8%;left: 20%;width: 20px;height: 20px;
+-ms-transform: rotate(10deg);
+transform: rotate(10deg);}
+5%
+{-ms-transform: rotate(10deg); 
+transform: rotate(10deg);}
+8%
+{-ms-transform: rotate(-10deg); 
+transform: rotate(-10deg);}
+9% 
+{top: 25%;left: 75%;width: 80px;height: 80px;}
+14%
+{-ms-transform: rotate(-10deg); 
+transform: rotate(-10deg);}
+17%
+{-ms-transform: rotate(10deg); 
+transform: rotate(10deg); 
+top: 33%;left: 10%;width: 180px;height: 180px;}
+
+25%{
+top: 350px;left: 33%;width: 453px;height: 453px;
+-ms-transform: rotate(0deg); 
+transform: rotate(0deg);}
+
+100%{
+top: 350px;left: 33%;width: 453px;height: 453px;
+-ms-transform: rotate(0deg); 
+transform: rotate(0deg);}
+}
+
+/*animation for the saucer shaking on its own. */
+.saucer_shake{
+-webkit-animation-name: saucer_shake;
+-webkit-animation-duration: 2s;
+-moz-animation-name: saucer_shake;
+-moz-animation-duration: 2s;
+-o-animation-name: saucer_shake;
+-o-animation-duration: 2s;
+animation-name: saucer_shake;
+animation-duration: 2s;
+
+-webkit-animation-iteration-count: 5; /* Chrome, Safari, Opera */
+-moz-animation-iteration-count: 5; /* Chrome, Safari, Opera */
+-o-animation-iteration-count: 5; /* Chrome, Safari, Opera */
+animation-iteration-count: 5;
+
+}
+
+
+@-webkit-keyframes saucer_shake{
+0%  {-webkit-transform: rotate(0deg);}
+10% {-webkit-transform: rotate(-1deg); }
+15% {-webkit-transform: rotate(1deg); }
+20% {-webkit-transform: rotate(-1deg); }
+
+25% {-webkit-transform: rotate(1deg); }
+30% {-webkit-transform: rotate(-1deg); }
+
+35% {-webkit-transform: rotate(1deg); }
+40% {-webkit-transform: rotate(-1deg); }
+50% {-webkit-transform: rotate(1deg); }
+60% {-webkit-transform: rotate(-1deg); }
+70% {-webkit-transform: rotate(1deg); }
+80% {-webkit-transform: rotate(-1deg); }
+90% {-webkit-transform: rotate(1deg); }
+100%{-webkit-transform: rotate(0deg); }
+}
+
+@-moz-keyframes saucer_shake{
+0%  {-moz-transform: rotate(0deg);}
+10% {-moz-transform: rotate(-1deg); }
+15% {-moz-transform: rotate(1deg); }
+20% {-moz-transform: rotate(-1deg); }
+
+25% {-moz-transform: rotate(1deg); }
+30% {-moz-transform: rotate(-1deg); }
+
+35% {-moz-transform: rotate(1deg); }
+40% {-moz-transform: rotate(-1deg); }
+50% {-moz-transform: rotate(1deg); }
+60% {-moz-transform: rotate(-1deg); }
+70% {-moz-transform: rotate(1deg); }
+80% {-moz-transform: rotate(-1deg); }
+90% {-moz-transform: rotate(1deg); }
+100%{-moz-transform: rotate(0deg); }
+}
+@-o-keyframes saucer_shake{
+0%  {-o-transform: rotate(0deg);}
+10% {-o-transform: rotate(-1deg); }
+15% {-o-transform: rotate(1deg); }
+20% {-o-transform: rotate(-1deg); }
+
+25% {-o-transform: rotate(1deg); }
+30% {-o-transform: rotate(-1deg); }
+
+35% {-o-transform: rotate(1deg); }
+40% {-o-transform: rotate(-1deg); }
+50% {-o-transform: rotate(1deg); }
+60% {-o-transform: rotate(-1deg); }
+70% {-o-transform: rotate(1deg); }
+80% {-o-transform: rotate(-1deg); }
+90% {-o-transform: rotate(1deg); }
+100%{-o-transform: rotate(0deg); }
+}
+
+@keyframes saucer_shake{
+0% 
+{-ms-transform: rotate(0deg); 
+transform: rotate(0deg);}
+10% 
+{-ms-transform: rotate(-1deg); 
+transform: rotate(-1deg);}
+15% 
+{-ms-transform: rotate(1deg);
+transform: rotate(1deg);}
+20% 
+{-ms-transform: rotate(-1deg); 
+transform: rotate(-1deg);}
+25%
+{-ms-transform: rotate(1deg); 
+transform: rotate(1deg);}
+30%
+{-ms-transform: rotate(-1deg);  
+transform: rotate(-1deg);}
+35% 
+{-ms-transform: rotate(1deg); 
+transform: rotate(1deg);}
+40%
+{-ms-transform: rotate(-1deg); 
+transform: rotate(-1deg);}
+50%
+{-ms-transform: rotate(1deg); 
+transform: rotate(1deg);}
+60% 
+{-ms-transform: rotate(-1deg); 
+transform: rotate(-1deg);}
+70% 
+{-ms-transform: rotate(1deg); 
+transform: rotate(1deg);}
+80%
+{-ms-transform: rotate(-1deg); 
+transform: rotate(-1deg);}
+90%
+{-ms-transform: rotate(1deg); 
+transform: rotate(1deg);}
+100%
+{-ms-transform: rotate(0deg); 
+transform: rotate(0deg);}
+}
+
+
+
+#cup_and_saucer_container img{
+display: block;
+position: absolute;
+top: 0px;
+left: 0px;
+
+height: auto;
+}
+
+
+#cup_and_saucer_container img.alien_figure, #cup_and_saucer_container img.alien_figure_hands{
+opacity: 0;
+top: 110px;
+
+-webkit-transition: top 1s, opacity .4s; /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+-moz-transition: top 1s, opacity .4s;
+-o-transition: top 1s, opacity .4s;
+transition: top 1s, opacity .4s;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+}
+#cup_and_saucer_container img.alien_figure_hands{
+top: 0px;
+}
+#cup_and_saucer_container img.alien_figure.show_alien, #cup_and_saucer_container img.alien_figure_hands.show_alien{
+top: 0px;
+opacity: 1;
+
+}

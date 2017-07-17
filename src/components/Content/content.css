@@ -1,0 +1,11 @@
+#content{
+position:relative;
+overflow: hidden;
+
+width: 99%;
+
+}
+#content{
+margin: 110px 0% 0px 1%;
+min-height: 800px;
+}

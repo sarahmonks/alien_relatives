@@ -1,0 +1,227 @@
+/**********************************************************
+* Author: Sarah Monks
+* Assignment: WE4.0 PHP Web App Assignment, Digital Skills Academy
+* Student ID: D15126869
+* Date : 2016/02/08
+* Ref: Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
+* Ref: Free font Action_Man_Bold_Italic: http://fonts5.com/html/a/Action_Man_Bold_Italic.html
+* Ref: Background Image: outer-space.jpg http://mrwallpaperhd.com/picture/earth-hine-in-space-hd-background-5291-hd-wallpaper.html
+***********************************************************/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    vertical-align:baseline;
+    background:transparent;
+}
+html{
+height: 100%;
+font-size: 62.5%;
+-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section{ 
+display:block;
+}
+
+body{
+line-height: 1;
+}
+ol, ul{
+list-style: none;
+}
+
+nav ul{
+list-style:none;
+}
+
+
+body{
+position: relative;
+
+margin-top: 0px;  /*moves #container right up to top of page so no gap*/
+font-family:Arial,Helvetica,sans-serif;
+height: 100%;
+width: 100%;
+overflow: auto;
+z-index: 1;
+}
+
+#container_wrapper{
+color: #fff;
+position: absolute;
+left: 0px;
+top: 0px;
+display: block;
+margin: 0 auto;
+width: 100%;
+background: #373737;
+background-image: url('../images/outer-space1.jpg');
+
+background-repeat: no-repeat;
+background-size: cover;
+overflow: auto;
+max-width: 100%;  
+z-index: 4;
+/* we make our own manual scrolling so we can do scrolling in different divs or sections */
+/* these transitions are necessary for scrolling */
+-webkit-transition: .3s; /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+-moz-transition: .3s;
+-o-transition: .3s;
+transition: .3s;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+height: 100%;
+}
+
+
+#container {
+margin: 0 auto;
+width: 100%;
+position: relative;
+overflow: hidden;
+display: block;
+max-width: 100%;  
+min-height: 100%;
+font-size: 1.6rem;
+line-height: 1.9rem;
+padding-bottom: 0px;
+}
+
+
+/***********************************************/
+/* h1, h2, h3, h4 and text styles here */
+
+h1{
+padding-top: 3px;
+font-weight: bold;
+
+color: #05fbf3;
+text-shadow: 0 0 0 #000, 1px 1px 15px #05fbf3;
+}
+
+h2{
+text-align: center;
+padding-top: 5px;
+font-family:Action_Man_Bold_Italic;
+color: #05fbf3;
+text-shadow: 0 0 0 #000, 1px 1px 15px #05fbf3;
+}
+
+.normal_text{
+color: #fff;
+}
+
+.large_text{
+font-family:Action_Man_Bold_Italic;
+color: #fff;
+text-shadow: 0 0 0 #000, 1px 1px 15px #fff;
+
+}
+.huge_text{
+line-height: 5.8rem;
+font-size: 5.7rem;
+padding: 10px 0px;
+font-family:Action_Man_Bold_Italic;
+color: #fff;
+text-shadow: 0 0 0 #000, 1px 1px 20px #fff;
+text-align: center;
+}
+
+.pink_text{
+color: #f20c96;
+text-shadow: 0 0 0 #000,1px 1px 20px #f20c96;
+}
+
+/***********************************************/
+/* scrolling styles and transitions here */
+
+.scrollable{
+overflow: scroll;
+-webkit-transition-property: top, bottom;
+-moz-transition-property: top, bottom;
+-o-transition-property: top, bottom;
+transition-property: top, bottom;
+
+-webkit-transition-duration: .2s, .2s;
+-moz-transition-duration: .2s, .2s;
+-o-transition-duration: .2s, .2s;
+transition-duration: .2s, .2s;
+
+-webkit-transition-timing-function: linear, linear;
+-moz-transition-timing-function: linear, linear;
+-o-transition-timing-function: linear, linear;
+transition-timing-function: linear, linear;
+-webkit-overflow-scrolling: touch;
+}
+
+::-webkit-scrollbar {  
+padding: 1px;
+width: 4px;  
+background-color: #353535;
+}  
+
+::-webkit-scrollbar-track { 
+z-index: 400;
+border-radius: 10px; 
+background-color: #353535;  
+}  
+
+::-webkit-scrollbar-thumb { 
+border-radius: 10px; 
+background-color: #939396; 
+}  
+::-webkit-scrollbar-thumb:hover {  
+background-color: #0cfaf2;  
+} 
+
+
+
+/***********************************************/
+/* button styles */
+
+.button_style{
+margin: 10px auto 10px auto;
+padding: 10px 8px;
+width: 160px;
+outline: 0; 
+border: 0;
+-webkit-box-shadow: inset 0px -1px 0px 0px rgba(11, 10, 10, 1), inset 0px 1px 0px 0px rgba(172, 172,172, 1);
+-moz-box-shadow:    inset 0px -1px 0px 0px rgba(11, 10, 10,1), inset 0px 1px 0px 0px rgba(172, 172,172, 1);
+box-shadow:        inset 0px -1px 0px 0px rgba(11, 10, 10, 1), inset 0px 1px 0px 0px rgba(172, 172,172, 1);
+
+font-weight: bold;
+text-align: center;
+background: #000;
+color: #05fbf3;
+text-shadow: 0 0 0 #000, 1px 1px 15px #05fbf3, 1px 1px 20px #05fbf3;
+border-left: 1px solid #525353;
+border-right: 1px solid #525353;
+-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+display: block;
+cursor: pointer;
+font-size: 1.7rem;
+color: #fff;
+text-shadow: 0 0 0 #000, 1px 1px 10px #fff;
+}
+
+.button_style:active, .button_style:hover{
+border-top: 1px solid #000;
+background: #fff;
+margin-bottom:9px;
+color: #000;
+text-shadow: none;
+}
