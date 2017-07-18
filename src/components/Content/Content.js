@@ -14,7 +14,7 @@ const Content = function(props) {
 			<CupAndSaucer alienTribeName={props.alienTribeName} alienTribeImage={props.alienTribeImage}
 					alienTribeImageHands={props.alienTribeImageHands} alienWisdomMessageMp3={props.alienWisdomMessageMp3}/>
 			<AlienTribeNameArea alienTribeName={props.alienTribeName}/>
-			<FormArea submitForm={props.submitForm}/>
+			<FormArea submitForm={props.submitForm} originalFormIsDisplayed={props.originalFormIsDisplayed} alienTribeName={props.alienTribeName} firstName={props.firstName} />
 			</div>
 		);
  
