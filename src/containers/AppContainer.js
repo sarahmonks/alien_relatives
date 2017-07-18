@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import Header from '../components/Header/Header';
 
 import Content from '../components/Content/Content';
+import AudioPlayers from '../components/AudioPlayers/AudioPlayers';
 
 var xmlhttpSubmitForm;
 var app_root_url = 'http://www.gamuzic.com/alien_relatives/';
@@ -15,6 +16,8 @@ class AppContainer extends Component {
     		super(props);
     		this.state = {
 			//sidePanelIsOpen: false
+			originalFormIsDisplayed: true,
+			firstName: '',
 			alienTribeName: '',
 			alienTribeImage: '',
 			alienTribeImageHands: '',
@@ -49,6 +52,8 @@ class AppContainer extends Component {
 	submitForm (){
 		console.log("submit");
 		var firstName = document.getElementById('first_name').value;
+		this.setState({firstName: firstName}); 
+
 		console.log("submit " + firstName);
 		if(firstName != "" && firstName != null){
 			xmlhttpSubmitForm = this.createXHR(); 
@@ -81,6 +86,7 @@ class AppContainer extends Component {
 
 				this.setState({wisdomMessageEnglish: alienTribeResultsArray['wisdomMessageEnglish']}); 
 				this.setState({qtyOfLoveReceived: alienTribeResultsArray['qtyOfLoveReceived']}); 
+				this.setState({originalFormIsDisplayed: false}); 
 
 
 				//create array of the sounds we received from the database
@@ -94,7 +100,7 @@ class AppContainer extends Component {
 				//$('#alien_figure').attr('src', alienTribeImage);
 				//$('#alien_figure_hands').attr('src', alienTribeImageHands);
 				//document.getElementById('alien_tribe_name').innerHTML = alienTribeName;
-				document.getElementById('user_interactive_area').innerHTML = alienTribeHtmlOutput;
+				//document.getElementById('user_interactive_area').innerHTML = alienTribeHtmlOutput;
 				//document.getElementById('qty_of_love').innerHTML = "(" + qtyOfLoveReceived + ")";
 			//	document.getElementById('meet_alien_button_yes').addEventListener('click', function() { meetAlien(true); }, false);
 				//document.getElementById('meet_alien_button_no').addEventListener('click', function() { meetAlien(false); }, false);
@@ -105,14 +111,17 @@ class AppContainer extends Component {
     
 
 		return(<div>
-			<Header />
-				<div id="container_wrapper" className="scrollable">
-					<div id="container">
-					<Content submitForm={this.submitForm} alienTribeName={this.state.alienTribeName} alienTribeImage={this.state.alienTribeImage}
-					alienTribeImageHands={this.state.alienTribeImageHands} alienWisdomMessageMp3={this.state.alienWisdomMessageMp3}/>
+					<Header />
+					<div id="container_wrapper" className="scrollable">
+						<div id="container">
+						<Content submitForm={this.submitForm} alienTribeName={this.state.alienTribeName} alienTribeImage={this.state.alienTribeImage}
+						alienTribeImageHands={this.state.alienTribeImageHands} alienWisdomMessageMp3={this.state.alienWisdomMessageMp3} 
+						originalFormIsDisplayed={this.state.originalFormIsDisplayed} firstName={this.state.firstName} />
+						</div>
+
+						<AudioPlayers alienWisdomMessageMp3={this.state.alienWisdomMessageMp3} />
 					</div>
 				</div>
-			</div>
 		);	
 	}
 
