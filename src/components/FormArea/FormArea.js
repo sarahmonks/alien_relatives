@@ -12,7 +12,7 @@ const FormArea = function(props) {
     	if (props.originalFormIsDisplayed) {
       		userInterativeArea = <OriginalForm submitForm={props.submitForm} />;
     	} else {
-      		userInterativeArea = <AlienInformation alienTribeName={props.alienTribeName} firstName={props.firstName} />;
+      		userInterativeArea = <AlienInformation alienTribeName={props.alienTribeName} firstName={props.firstName} meetAlien={props.meetAlien}/>;
     	
     	}
 

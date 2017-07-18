@@ -10,8 +10,8 @@ const AlienInformation = function(props) {
 						<br />These are friendly creatures and one of them would like to meet you. Would you like to meet him?
 					</p>
 					<div id='result_message_area'>
-						<span id='meet_alien_button_yes' className='button_style'>Yes</span>
-						<span id='meet_alien_button_no' className='button_style'>No</span>
+						<span id='meet_alien_button_yes' onClick={props.meetAlien.bind(null, true)} className='button_style'>Yes</span>
+						<span id='meet_alien_button_no'  onClick={props.meetAlien.bind(null, false)} className='button_style'>No</span>
 					</div>
 				</div>
 				

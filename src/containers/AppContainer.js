@@ -29,6 +29,7 @@ class AppContainer extends Component {
 		this.submitForm = this.submitForm.bind(this);
 		this.submitFormCallback = this.submitFormCallback.bind(this);
 		this.createXHR = this.createXHR.bind(this);
+		this.meetAlien = this.meetAlien.bind(this);
 		//this.toggleSidePanel = this.toggleSidePanel.bind(this);
   	}	
 	componentDidMount() {
@@ -40,6 +41,7 @@ class AppContainer extends Component {
 	        return new XMLHttpRequest();
 
 	    }catch(e){
+	    	//this is causing causing error on chrome
 	    	//console.log(e);
 	        //try{
 	         //  return new ActiveXObject("Microsoft.XMLHTTP");
@@ -50,11 +52,8 @@ class AppContainer extends Component {
 	}
 
 	submitForm (){
-		console.log("submit");
 		var firstName = document.getElementById('first_name').value;
 		this.setState({firstName: firstName}); 
-
-		console.log("submit " + firstName);
 		if(firstName != "" && firstName != null){
 			xmlhttpSubmitForm = this.createXHR(); 
 			xmlhttpSubmitForm.onreadystatechange = this.submitFormCallback;
@@ -107,6 +106,24 @@ class AppContainer extends Component {
 			}
 
 	}
+	meetAlien (meetAlien){
+		//make results_message_area wider for inserting message to user
+		//$("#result_message_area").addClass('full_width');
+		console.log("meetAlien" + meetAlien);
+		if(meetAlien){
+
+			//if the user chooses to meet the alien we do this
+			//performAnimation();
+			//document.getElementById('result_message_area').innerHTML = "<p class='large_text'>Here comes the <span class='pink_text'>flying saucer</span>!!!</p>";
+			
+			//set a timer for 10 seconds so we know when the animation is finished and we can add and remove classes
+			//intvAnimation = setInterval(function(){timeAnimation();}, 10000);
+		}else{
+			//if the user chooses not to meet the alien do this
+			//document.getElementById('result_message_area').innerHTML = "<p class='large_text'>Awwwww!!!</p>";
+			
+		}
+	}
 	render() {
     
 
@@ -116,7 +133,7 @@ class AppContainer extends Component {
 						<div id="container">
 						<Content submitForm={this.submitForm} alienTribeName={this.state.alienTribeName} alienTribeImage={this.state.alienTribeImage}
 						alienTribeImageHands={this.state.alienTribeImageHands} alienWisdomMessageMp3={this.state.alienWisdomMessageMp3} 
-						originalFormIsDisplayed={this.state.originalFormIsDisplayed} firstName={this.state.firstName} />
+						originalFormIsDisplayed={this.state.originalFormIsDisplayed} firstName={this.state.firstName} meetAlien={this.meetAlien} />
 						</div>
 
 						<AudioPlayers alienWisdomMessageMp3={this.state.alienWisdomMessageMp3} />
