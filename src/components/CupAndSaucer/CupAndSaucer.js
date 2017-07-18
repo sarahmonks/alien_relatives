@@ -6,15 +6,14 @@ import cup_front from '../../images/cup-front.png';
 import saucer from '../../images/saucer.png';
 
 const CupAndSaucer = function(props) {
-
-	
+		console.log(props.alienTribeImage);	
 		return (<div id="cup_and_saucer_container" className="full_position">
 					<img src={cup_back} width="453" height="453" />
 					
-					<img id="alien_figure" className="alien_figure" src="" width="453" height="453" />
+					<img id="alien_figure" className="alien_figure" src={props.alienTribeImage} width="453" height="453" />
 					<img className="saucer_solo" src={saucer} width="453" height="453" />
 					<img src={cup_front} width="453" height="453" />
-					<img id="alien_figure_hands" className="alien_figure_hands" src="" width="453" height="453" />
+					<img id="alien_figure_hands" className="alien_figure_hands" src={props.alienTribeImageHands} width="453" height="453" />
 					<span id="play_message" className="play_message button_style">Play Wisdom Message</span>
 				</div>
 		);
