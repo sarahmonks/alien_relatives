@@ -1,0 +1,29 @@
+@media screen and (min-width: 210px) and (max-width: 479px) {
+
+p#alien_tribe_name{
+font-size: 2.2rem !important;
+
+}
+#alien_tribe_name{
+margin: 10px 0px 10px 0px;
+}
+}
+
+@media screen and (min-width: 480px) and (max-width: 719px) { 
+
+p#alien_tribe_name{
+font-size: 2.3rem !important;
+}
+
+#alien_tribe_name{
+margin: 60px 0px 10px 0px;
+}
+}
+
+@media screen and (min-width: 720px){ 
+
+#alien_tribe_name{
+margin: 70px 0px 10px 0px;
+}
+
+}
