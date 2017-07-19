@@ -23,7 +23,10 @@ class AppContainer extends Component {
 			alienTribeImageHands: '',
 			alienWisdomMessageMp3: '',
 			wisdomMessageEnglish: '',
+			userChoseToMeetAlien: false,
+			resultMessageIsDisplayed: false,
 			qtyOfLoveReceived: 0
+
 
 		};
 		this.submitForm = this.submitForm.bind(this);
@@ -106,11 +109,13 @@ class AppContainer extends Component {
 			}
 
 	}
-	meetAlien (meetAlien){
+	meetAlien (userChoseToMeetAlien){
 		//make results_message_area wider for inserting message to user
 		//$("#result_message_area").addClass('full_width');
-		console.log("meetAlien" + meetAlien);
-		if(meetAlien){
+	
+		this.setState({userChoseToMeetAlien: userChoseToMeetAlien}); 	
+		this.setState({resultMessageIsDisplayed: true}); 	
+		if(userChoseToMeetAlien){
 
 			//if the user chooses to meet the alien we do this
 			//performAnimation();
@@ -119,6 +124,7 @@ class AppContainer extends Component {
 			//set a timer for 10 seconds so we know when the animation is finished and we can add and remove classes
 			//intvAnimation = setInterval(function(){timeAnimation();}, 10000);
 		}else{
+
 			//if the user chooses not to meet the alien do this
 			//document.getElementById('result_message_area').innerHTML = "<p class='large_text'>Awwwww!!!</p>";
 			
@@ -133,7 +139,8 @@ class AppContainer extends Component {
 						<div id="container">
 						<Content submitForm={this.submitForm} alienTribeName={this.state.alienTribeName} alienTribeImage={this.state.alienTribeImage}
 						alienTribeImageHands={this.state.alienTribeImageHands} alienWisdomMessageMp3={this.state.alienWisdomMessageMp3} 
-						originalFormIsDisplayed={this.state.originalFormIsDisplayed} firstName={this.state.firstName} meetAlien={this.meetAlien} />
+						originalFormIsDisplayed={this.state.originalFormIsDisplayed} firstName={this.state.firstName} meetAlien={this.meetAlien} 
+						userChoseToMeetAlien={this.state.userChoseToMeetAlien} resultMessageIsDisplayed={this.state.resultMessageIsDisplayed} />
 						</div>
 
 						<AudioPlayers alienWisdomMessageMp3={this.state.alienWisdomMessageMp3} />
