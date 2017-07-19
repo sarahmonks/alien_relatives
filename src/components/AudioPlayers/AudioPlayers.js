@@ -1,8 +1,8 @@
 import React from 'react';
 
 import './audio_players.css';
-import alien_synth_melody from '../../alien_sounds/alien-synth-melody.mp3';
-import alien_saucer_rattle from '../../alien_sounds/alien-saucer-rattle.mp3';
+import alien_synth_melody from '../../alien_sounds/alien_synth_melody.mp3';
+import alien_saucer_rattle from '../../alien_sounds/alien_saucer_rattle.mp3';
 
 
 const AudioPlayers = function(props) {
