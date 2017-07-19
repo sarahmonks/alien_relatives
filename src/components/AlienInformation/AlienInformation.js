@@ -1,18 +1,29 @@
 import React from 'react';
 
 import './alien_information.css';
-
+import ResultMessage from '../ResultMessage/ResultMessage';
+import MeetAlienButtons from '../MeetAlienButtons/MeetAlienButtons';
 
 const AlienInformation = function(props) {
+		const userChoseToMeetAlien= props.userChoseToMeetAlien;
+		const resultMessageIsDisplayed= props.resultMessageIsDisplayed;
+		let resultMessageArea = null;
+    	if (resultMessageIsDisplayed) {
+
+      		resultMessageArea = <ResultMessage userChoseToMeetAlien={props.userChoseToMeetAlien}/>;
+
+    	} else {
+
+      		resultMessageArea = <MeetAlienButtons meetAlien={props.meetAlien} />;
+    	
+    	}
+
 		return (<div>
 					<p className='normal_text'>Hi {props.firstName}!!
 						<br />You are related to the <span className='large_text'>{props.alienTribeName}</span> Alien Tribe! 
 						<br />These are friendly creatures and one of them would like to meet you. Would you like to meet him?
 					</p>
-					<div id='result_message_area'>
-						<span id='meet_alien_button_yes' onClick={props.meetAlien.bind(null, true)} className='button_style'>Yes</span>
-						<span id='meet_alien_button_no'  onClick={props.meetAlien.bind(null, false)} className='button_style'>No</span>
-					</div>
+					{resultMessageArea}
 				</div>
 				
 		);
