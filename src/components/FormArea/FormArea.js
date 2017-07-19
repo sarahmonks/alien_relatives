@@ -9,10 +9,11 @@ const FormArea = function(props) {
 		const originalFormIsDisplayed = props.originalFormIsDisplayed;
 
 		let userInterativeArea = null;
-    	if (props.originalFormIsDisplayed) {
+    	if (originalFormIsDisplayed) {
       		userInterativeArea = <OriginalForm submitForm={props.submitForm} />;
     	} else {
-      		userInterativeArea = <AlienInformation alienTribeName={props.alienTribeName} firstName={props.firstName} meetAlien={props.meetAlien}/>;
+      		userInterativeArea = <AlienInformation alienTribeName={props.alienTribeName} firstName={props.firstName} meetAlien={props.meetAlien} 
+      		userChoseToMeetAlien={props.userChoseToMeetAlien} resultMessageIsDisplayed={props.resultMessageIsDisplayed}/>;
     	
     	}
 

@@ -7,11 +7,11 @@ import saucer from '../../images/saucer.png';
 
 const CupAndSaucer = function(props) {
 		console.log(props.alienTribeImage);	
-		return (<div id="cup_and_saucer_container" className="full_position">
+		return (<div id="cup_and_saucer_container" className={(props.userChoseToMeetAlien === true ? 'rotate_cup_and_saucer_animation move_animation' : '')}>
 					<img src={cup_back} width="453" height="453" />
 					
 					<img id="alien_figure" className="alien_figure" src={props.alienTribeImage} width="453" height="453" />
-					<img className="saucer_solo" src={saucer} width="453" height="453" />
+					<img className={"saucer_solo " + (props.userChoseToMeetAlien === true ? 'saucer_shake' : '')} src={saucer} width="453" height="453" />
 					<img src={cup_front} width="453" height="453" />
 					<img id="alien_figure_hands" className="alien_figure_hands" src={props.alienTribeImageHands} width="453" height="453" />
 					<span id="play_message" className="play_message button_style">Play Wisdom Message</span>
