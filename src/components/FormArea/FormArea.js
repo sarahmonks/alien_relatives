@@ -16,6 +16,7 @@ const FormArea = function(props) {
       											firstName={props.firstName} meetAlien={props.meetAlien} 
       											userChoseToMeetAlien={props.userChoseToMeetAlien} 
       											resultMessageIsDisplayed={props.resultMessageIsDisplayed}
+      											cupAndSaucerHaveArrived={props.cupAndSaucerHaveArrived}
       							/>;
     	
     	}
