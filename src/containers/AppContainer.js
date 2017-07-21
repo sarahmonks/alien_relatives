@@ -27,6 +27,7 @@ class AppContainer extends Component {
 			userChoseToMeetAlien: false,
 			resultMessageIsDisplayed: false,
 			cupAndSaucerHaveArrived: false,
+			userChoseToPlayMessage: false,
 			qtyOfLoveReceived: 0
 		};
 		this.submitForm = this.submitForm.bind(this);
@@ -89,16 +90,20 @@ class AppContainer extends Component {
 				console.log(alienTribeResultsArray['alienTribeImage']);
 				this.setState({alienTribeImageHands: app_root_url + alienTribeResultsArray['alienTribeImageHands']});
 
-				this.setState({alienWisdomMessageMp3: app_root_url + alienTribeResultsArray['alienWisdomMessageMp3']}); 
-
 				this.setState({wisdomMessageEnglish: alienTribeResultsArray['wisdomMessageEnglish']}); 
 				this.setState({qtyOfLoveReceived: alienTribeResultsArray['qtyOfLoveReceived']}); 
 				this.setState({originalFormIsDisplayed: false}); 
 
 
+				this.setState({alienWisdomMessageMp3: app_root_url + alienTribeResultsArray['alienWisdomMessageMp3']}); 
+				//create a player with the audio tag with id audio_player_2 where the wisdom message will be loaded.
+				
+				this.audio_player_2 = document.getElementById('audio_player_2');
+
+
 				//create array of the sounds we received from the database
 				var alienSoundMp3Array = new Array(alienTribeResultsArray['alienWisdomMessageMp3']);
-
+		
 				//load sound that we received from the database into player2
 				//loadData(player2, 2, alienSoundMp3Array, 0);
 				//console.log(alienTribeImage);
@@ -157,7 +162,9 @@ class AppContainer extends Component {
 	}
 	playAlienMessage (){
 		console.log('test');
-
+		this.setState({userChoseToPlayMessage: true}); 	
+		this.audio_player_2.load();
+		this.audio_player_2.play();
 	}
 	render() {
 		return(<div>
@@ -175,6 +182,8 @@ class AppContainer extends Component {
 									resultMessageIsDisplayed={this.state.resultMessageIsDisplayed} 
 									cupAndSaucerHaveArrived={this.state.cupAndSaucerHaveArrived} 
 									playAlienMessage={this.playAlienMessage}
+									wisdomMessageEnglish={this.state.wisdomMessageEnglish}
+									userChoseToPlayMessage={this.state.userChoseToPlayMessage}
 						/>
 						<AudioPlayers alienWisdomMessageMp3={this.state.alienWisdomMessageMp3} />
 					</div>
