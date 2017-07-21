@@ -5,17 +5,15 @@ import ResultMessage from '../ResultMessage/ResultMessage';
 import MeetAlienButtons from '../MeetAlienButtons/MeetAlienButtons';
 
 const AlienInformation = function(props) {
-		const userChoseToMeetAlien= props.userChoseToMeetAlien;
+
 		const resultMessageIsDisplayed= props.resultMessageIsDisplayed;
+
 		let resultMessageArea = null;
     	if (resultMessageIsDisplayed) {
-
       		resultMessageArea = <ResultMessage userChoseToMeetAlien={props.userChoseToMeetAlien}/>;
-
     	} else {
 
       		resultMessageArea = <MeetAlienButtons meetAlien={props.meetAlien} />;
-    	
     	}
 
 		return (<div>
@@ -24,10 +22,8 @@ const AlienInformation = function(props) {
 						<br />These are friendly creatures and one of them would like to meet you. Would you like to meet him?
 					</p>
 					{resultMessageArea}
-				</div>
-				
+				</div>	
 		);
- 
 }
 
 export default AlienInformation;
