@@ -1,0 +1,60 @@
+/* this is the container for the speech bubble where we will display the wisdom message in english*/
+#english_translation{
+position: absolute;
+top: 380px;
+left: 60%;
+width: 340px;
+padding-bottom: 30px;
+opacity: 0;
+overflow: hidden;
+
+-webkit-transition: opacity 1s; /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+-moz-transition: opacity 1s;
+-o-transition: opacity 1s;
+transition: opacity 1s;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+
+-webkit-transition-delay: 3s; /* Safari */
+-moz-transition-delay: 3s; 
+-o-transition-delay: 3s;
+transition-delay: 3s;
+}
+
+
+#english_translation.fade_in{
+
+opacity: 1;
+}
+
+#english_translation .speech_bubble{
+background: #fff;
+position: relative;
+margin: 0px 3px 10px 45px;
+min-height: 80px;
+width: 290px;
+border: 3px solid #000;
+border-radius: 10px;
+}
+#english_translation p{
+z-index: 2;
+color: #000;
+}
+
+
+
+/* these are the small circular bubbles coming from the main speech bubble*/
+.bubble{
+position: absolute;
+background: #fff;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+border: 2px solid #000;
+bottom: 20px;
+left:20px;
+}
+.bubble.small{
+width: 15px;
+height: 15px;
+bottom: 0px;
+left:0px;
+}
