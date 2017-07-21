@@ -3,6 +3,8 @@ import Planet from '../Planet/Planet';
 import CupAndSaucer from '../CupAndSaucer/CupAndSaucer';
 import AlienTribeNameArea from '../AlienTribeNameArea/AlienTribeNameArea';
 import FormArea from '../FormArea/FormArea';
+import SpeechBubble from '../SpeechBubble/SpeechBubble';
+
 import './content.css';
 
 
@@ -24,7 +26,10 @@ const Content = function(props) {
 								firstName={props.firstName} 
 								meetAlien={props.meetAlien} 
 								userChoseToMeetAlien={props.userChoseToMeetAlien}
-								resultMessageIsDisplayed={props.resultMessageIsDisplayed} />
+								resultMessageIsDisplayed={props.resultMessageIsDisplayed} 
+								cupAndSaucerHaveArrived={props.cupAndSaucerHaveArrived} />
+						<SpeechBubble wisdomMessageEnglish={props.wisdomMessageEnglish}
+								userChoseToPlayMessage={props.userChoseToPlayMessage} />
 					</div>
 				</div>
 		);
