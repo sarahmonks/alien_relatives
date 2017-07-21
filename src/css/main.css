@@ -119,16 +119,70 @@ color: #05fbf3;
 text-shadow: 0 0 0 #000, 1px 1px 15px #05fbf3;
 }
 
+
+
+
 .normal_text{
 color: #fff;
 }
+
+@media screen and (min-width: 210px) and (max-width: 479px) {
+.normal_text{
+line-height: 1.9rem;
+font-size: 1.6rem;
+color: #fff;
+}
+}
+
+
+@media screen and (min-width: 480px) and (max-width: 719px) { 
+.normal_text{
+line-height: 2.2rem;
+font-size: 1.7rem;
+}
+}
+
+@media screen and (min-width: 720px){ 
+.normal_text{
+line-height: 2.2rem;
+font-size: 1.7rem;
+}
+}
+
+
 
 .large_text{
 font-family:Action_Man_Bold_Italic;
 color: #fff;
 text-shadow: 0 0 0 #000, 1px 1px 15px #fff;
+}
+
+@media screen and (min-width: 210px) and (max-width: 479px) {
+.large_text{
+line-height: 1.8rem;
+font-size: 1.7rem;
+padding: 0px 4px 2px 4px;
+}
+}
+
+
+@media screen and (min-width: 480px) and (max-width: 719px) { 
+.large_text{
+line-height: 2.6rem;
+font-size: 2.3rem;
+padding: 5px 4px;
+}
+}
+@media screen and (min-width: 720px){ 
+.large_text{
+line-height: 2.6rem;
+font-size: 2.3rem;
+padding: 5px 4px;
 
 }
+}
+
+
 .huge_text{
 line-height: 5.8rem;
 font-size: 5.7rem;
@@ -143,6 +197,8 @@ text-align: center;
 color: #f20c96;
 text-shadow: 0 0 0 #000,1px 1px 20px #f20c96;
 }
+
+
 
 /***********************************************/
 /* scrolling styles and transitions here */
