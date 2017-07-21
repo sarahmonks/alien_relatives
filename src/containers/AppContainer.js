@@ -34,6 +34,8 @@ class AppContainer extends Component {
 		this.createXHR = this.createXHR.bind(this);
 		this.meetAlien = this.meetAlien.bind(this);
 		this.timeAnimation = this.timeAnimation.bind(this);
+		this.playAlienMessage = this.playAlienMessage.bind(this);
+
   	}	
 	componentDidMount() {
 		//the main component has mounted therefore the AudioPlayers component has mounted also so we create audio players for the audio
@@ -153,6 +155,10 @@ class AppContainer extends Component {
 		
 		}
 	}
+	playAlienMessage (){
+		console.log('test');
+
+	}
 	render() {
 		return(<div>
 					<Header />
@@ -168,6 +174,7 @@ class AppContainer extends Component {
 									userChoseToMeetAlien={this.state.userChoseToMeetAlien} 
 									resultMessageIsDisplayed={this.state.resultMessageIsDisplayed} 
 									cupAndSaucerHaveArrived={this.state.cupAndSaucerHaveArrived} 
+									playAlienMessage={this.playAlienMessage}
 						/>
 						<AudioPlayers alienWisdomMessageMp3={this.state.alienWisdomMessageMp3} />
 					</div>

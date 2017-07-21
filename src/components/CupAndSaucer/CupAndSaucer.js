@@ -24,7 +24,7 @@ const CupAndSaucer = function(props) {
 					<img id="alien_figure_hands" className={"alien_figure_hands "  + (props.cupAndSaucerHaveArrived === true ? 'show_alien' : '')} 
 							src={props.alienTribeImageHands} width="453" height="453" />
 
-					<span id="play_message" className={"play_message button_style " + (props.cupAndSaucerHaveArrived === true ? 'show_play_button' : '')}>
+					<span id="play_message" onClick={props.playAlienMessage} className={"play_message button_style " + (props.cupAndSaucerHaveArrived === true ? 'show_play_button' : '')}>
 							Play Wisdom Message
 					</span>
 				</div>
