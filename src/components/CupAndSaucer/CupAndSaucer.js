@@ -6,6 +6,12 @@ import cup_front from '../../images/cup-front.png';
 import saucer from '../../images/saucer.png';
 
 const CupAndSaucer = function(props) {
+		//This is a stateless component used in the Content component
+		//It displays the cup and saucer and alien image files. We use CSS classes to animated the cup and saucer after a user chooses to "meet"
+		//their related alien tribe.
+		//In this component, we will use the states userChoseToMeetAlien and cupAndSaucerHaveArrived (defined in the AppContainer class) 
+		//to determine which CSS classes should be output within the img tags
+
 		console.log(props.alienTribeImage);	
 		return (<div id="cup_and_saucer_container" className={((props.userChoseToMeetAlien === true  && props.cupAndSaucerHaveArrived === false) ? 'rotate_cup_and_saucer_animation move_animation' : 'full_position')}>
 					<img src={cup_back} width="453" height="453" />
