@@ -398,3 +398,42 @@ top: 0px;
 opacity: 1;
 
 }
+
+/*this is the button which the user can press in order to play the alien wisdom message*/
+
+.play_message{
+position: absolute;
+width: 80px;
+height: 57px;
+bottom: 20%;
+left: 40%;
+opacity: 0;
+padding: 13px 5px 20px 5px;
+font-size: 1.7rem;
+color: #fff;
+text-shadow: 0 0 0 #000, 1px 1px 15px #fff;
+-webkit-border-radius: 50%;
+-moz-border-radius: 50%;
+border-radius: 50%;
+background: none;
+-webkit-transition: opacity 1s; /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+-moz-transition: opacity 1s;
+-o-transition: opacity 1s;
+transition: opacity 1s;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+
+-webkit-transition-delay: 1s; /* Safari */
+-moz-transition-delay: 1s; 
+-o-transition-delay: 1s;
+transition-delay: 1s;
+}
+
+.play_message.show_play_button{
+opacity: 1;
+}
+
+.play_message:active{
+padding: 15px 5px 18px 5px;
+-webkit-box-shadow: inset 0px -1px 5px 0px rgba(0, 0, 0, 0.9),inset 0px -3px 10px 0px rgba(0, 0, 0, 0.7);
+-moz-box-shadow:    inset 0px -1px 5px 0px rgba(0, 0, 0, 0.9),inset 0px -3px 10px 0px rgba(0, 0, 0, 0.7);
+box-shadow:         inset 0px -1px 5px 0px rgba(0, 0, 0, 0.9),inset 0px -3px 10px 0px rgba(0, 0, 0, 0.7);
+}
