@@ -10,7 +10,8 @@ const AlienInformation = function(props) {
 
 		let resultMessageArea = null;
     	if (resultMessageIsDisplayed) {
-      		resultMessageArea = <ResultMessage userChoseToMeetAlien={props.userChoseToMeetAlien}/>;
+      		resultMessageArea = <ResultMessage userChoseToMeetAlien={props.userChoseToMeetAlien} 
+      									cupAndSaucerHaveArrived={props.cupAndSaucerHaveArrived}/>;
     	} else {
 
       		resultMessageArea = <MeetAlienButtons meetAlien={props.meetAlien} />;
