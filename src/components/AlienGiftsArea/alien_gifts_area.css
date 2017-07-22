@@ -1,0 +1,62 @@
+#alien_gifts_area{
+position: absolute;
+top: 520px;
+left: 36%;
+width: 31%;
+min-height: 180px;
+z-index: 13;
+display: none;
+}
+
+
+#alien_gifts_area .gifts_area{
+z-index: 12;
+position: relative;
+padding: 10px 10px 5px 10px;
+}
+#alien_gifts_area .gifts_area .fa-heart{
+color: #f20c96;
+font-size: 38px;
+text-shadow: 0 0 0 #000,1px 1px 20px #f20c96;
+}
+#alien_gifts_area .gifts_area p{
+text-align: center;
+
+}
+
+#alien_gifts_area .gifts_area #gift_love{
+width: 110px;
+padding: 10px 0px 10px 0px;
+
+}
+#qty_of_love{
+display: block;
+
+}
+
+#no_thanks, #alien_gifts_area .gifts_area #thank_you{
+padding: 10px 0px 10px 0px;
+margin-right: auto;
+margin-left: auto;
+width: 150px;
+display: block;
+text-align: center;
+
+}
+#thank_you{
+display: none;
+
+}
+#no_thanks:hover{
+color: #f20c96;
+text-shadow: 0 0 0 #000,1px 1px 20px #f20c96;
+cursor: pointer;
+}
+
+#alien_gifts_area .background_color{
+opacity: 1; 
+}
+#alien_gifts_area.show,#thank_you.show,{
+
+display: block;
+}
