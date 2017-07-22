@@ -7,12 +7,15 @@ import AudioPlayers from '../components/AudioPlayers/AudioPlayers';
 
 //define global variables
 var xmlhttpSubmitForm;
+var xmlhttpGiveLove;
+
 var intvAnimation;
 var intvShowGifts;
+var intvHideGifts;
 //the root of the url where the images and mp3s for the app are located.
 var app_root_url = 'http://www.gamuzic.com/alien_relatives/';
 var alienTribeId;
-
+var qtyOfLoveReceived;
 class AppContainer extends Component { 
 	//This class is the main component of the application.
 	constructor(props) {
@@ -39,7 +42,8 @@ class AppContainer extends Component {
 		this.timeAnimation = this.timeAnimation.bind(this);
 		this.playAlienMessage = this.playAlienMessage.bind(this);
 		this.showGifts = this.showGifts.bind(this);
-
+		this.giveLove = this.giveLove.bind(this);
+		this.updateLoveCallback = this.updateLoveCallback.bind(this);
   	}	
 	componentDidMount() {
 		//the main component has mounted therefore the AudioPlayers component has mounted also so we create audio players for the audio
@@ -170,12 +174,76 @@ class AppContainer extends Component {
 		this.audio_player_2.play();
 		var self;
 		self = this;
+		//the user has chosen to play the message
+		//we now set a timer for the showGifts method to run after the message has been played.
 		intvShowGifts = setInterval(function(){self.showGifts();}, 6500);
 	}
 	showGifts (){
+		//set giftAreaIsDisplayed to true. This state will be used in the AlienGiftsArea component to determine which css classes are output
 		this.setState({giftAreaIsDisplayed: true}); 	
-		//$("#give_alien_gifts").show();
+		//clear the interval
 		clearInterval(intvShowGifts);
+
+		//load the audio players which will play the feedback message after user chooses to give a gift or not
+		this.audio_player_3 = document.getElementById('audio_player_3');
+		this.audio_player_4 = document.getElementById('audio_player_4');
+		this.audio_player_3.load();
+		this.audio_player_4.load();
+
+	}
+
+	giveLove (loveWasReceived){
+		
+		//when user presses love button when 3 seconds and then call the hideGifts function to fade out the gifts area
+		//intvHideGifts = setInterval(function(){hideGifts();}, 3000);
+
+		if(loveWasReceived){
+			//play the "wit_woo" audio file which is stored in audio player 3
+			this.audio_player_3.play();
+
+			//the user has decided to give love to the alien tribe so we make ajax http request
+			//in order to save the new quantity of love to the database for this particular alien tribe 
+			xmlhttpGiveLove = this.createXHR();
+			xmlhttpGiveLove.onreadystatechange = this.updateLoveCallback;
+		
+			xmlhttpGiveLove.open("POST", "http://localhost/alien_relatives/updateLove.php", true);		
+			xmlhttpGiveLove.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			//console.log(alienTribeId);
+			//send our alienTribeId variable to updateLove.php file in order to process the data there
+			xmlhttpGiveLove.send('alienTribeId=' + alienTribeId);
+
+		}else{
+			//play the "boo" audio file which is stored in audio player 4
+			this.audio_player_4.play();
+			//change text in speech bubble
+			//$('.speech_bubble p').html("boo hoo!!!");
+			document.getElementById('result_message_area').innerHTML = "<p class='large_text'>He's a bit upset!!!</p>";
+		}
+		
+	}
+	updateLoveCallback (){
+		//this is the callback function which is called when the ajax response comes back.
+		if(xmlhttpGiveLove.readyState == 4 && xmlhttpGiveLove.status == 200){
+			//we receive the new quantity of love back in our response and store in newQtyOfLove 
+			var newQtyOfLove = xmlhttpGiveLove.responseText;
+
+			//update our global variable
+			qtyOfLoveReceived = newQtyOfLove;
+
+			//we update our qty_of_love html element with the new value 
+			document.getElementById('qty_of_love').innerHTML = "(" + newQtyOfLove + ")";
+
+
+
+			//change text in speech bubble
+			//$('.speech_bubble p').html("Thank youuuuu!!!");
+			document.getElementById('result_message_area').innerHTML = "<p class='large_text'>He's all loved up!!!</p>";
+		//	$('#result_message_area p').addClass('pink_text');
+			//hide the 'no thanks' link because the user has already given love	
+		//	$('#no_thanks').hide();
+			//$('#thank_you').show();
+			
+		}
 
 	}
 	render() {
@@ -197,6 +265,7 @@ class AppContainer extends Component {
 									wisdomMessageEnglish={this.state.wisdomMessageEnglish}
 									userChoseToPlayMessage={this.state.userChoseToPlayMessage}
 									giftAreaIsDisplayed={this.state.giftAreaIsDisplayed}
+									giveLove={this.giveLove}
 						/>
 						<AudioPlayers alienWisdomMessageMp3={this.state.alienWisdomMessageMp3} />
 					</div>
