@@ -29,7 +29,8 @@ const Content = function(props) {
 								userChoseToMeetAlien={props.userChoseToMeetAlien}
 								resultMessageIsDisplayed={props.resultMessageIsDisplayed} 
 								cupAndSaucerHaveArrived={props.cupAndSaucerHaveArrived} />
-						<AlienGiftsArea giftAreaIsDisplayed={props.giftAreaIsDisplayed} />
+						<AlienGiftsArea giftAreaIsDisplayed={props.giftAreaIsDisplayed} 
+								giveLove={props.giveLove}/>
 						<SpeechBubble wisdomMessageEnglish={props.wisdomMessageEnglish}
 								userChoseToPlayMessage={props.userChoseToPlayMessage} />
 					</div>
