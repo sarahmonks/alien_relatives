@@ -12,7 +12,7 @@ const OriginalForm = function(props) {
 						<input id="first_name" name="first_name" type="text" placeholder="Enter your first name" />
 							
 					</form>
-					<div id="submit_form" className="button_style" onClick={props.submitForm}>Submit</div>
+					<div id="submit_form" className="button_style main_button_style" onClick={props.submitForm}>Submit</div>
 				</div>
 		);
  
