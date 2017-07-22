@@ -8,6 +8,7 @@ import AudioPlayers from '../components/AudioPlayers/AudioPlayers';
 //define global variables
 var xmlhttpSubmitForm;
 var intvAnimation;
+var intvShowGifts;
 //the root of the url where the images and mp3s for the app are located.
 var app_root_url = 'http://www.gamuzic.com/alien_relatives/';
 var alienTribeId;
@@ -28,6 +29,7 @@ class AppContainer extends Component {
 			resultMessageIsDisplayed: false,
 			cupAndSaucerHaveArrived: false,
 			userChoseToPlayMessage: false,
+			giftAreaIsDisplayed: false,
 			qtyOfLoveReceived: 0
 		};
 		this.submitForm = this.submitForm.bind(this);
@@ -36,6 +38,7 @@ class AppContainer extends Component {
 		this.meetAlien = this.meetAlien.bind(this);
 		this.timeAnimation = this.timeAnimation.bind(this);
 		this.playAlienMessage = this.playAlienMessage.bind(this);
+		this.showGifts = this.showGifts.bind(this);
 
   	}	
 	componentDidMount() {
@@ -97,7 +100,7 @@ class AppContainer extends Component {
 
 				this.setState({alienWisdomMessageMp3: app_root_url + alienTribeResultsArray['alienWisdomMessageMp3']}); 
 				//create a player with the audio tag with id audio_player_2 where the wisdom message will be loaded.
-				
+
 				this.audio_player_2 = document.getElementById('audio_player_2');
 
 
@@ -146,8 +149,8 @@ class AppContainer extends Component {
 		if(userChoseToMeetAlien){
 			//if the user chooses to meet the alien we do this
 			//play the alien_saucer_rattle and alien_synth_melody audio files
-			this.audio_player_0.play();
-			this.audio_player_1.play();
+			//this.audio_player_0.play();
+			//this.audio_player_1.play();
 
 			//set a timer for 10 seconds so we know when the animation is finished and we can change the state of cupAndSaucerHaveArrived to true
 			//see the timeAnimation method
@@ -165,6 +168,15 @@ class AppContainer extends Component {
 		this.setState({userChoseToPlayMessage: true}); 	
 		this.audio_player_2.load();
 		this.audio_player_2.play();
+		var self;
+		self = this;
+		intvShowGifts = setInterval(function(){self.showGifts();}, 6500);
+	}
+	showGifts (){
+		this.setState({giftAreaIsDisplayed: true}); 	
+		//$("#give_alien_gifts").show();
+		clearInterval(intvShowGifts);
+
 	}
 	render() {
 		return(<div>
@@ -184,6 +196,7 @@ class AppContainer extends Component {
 									playAlienMessage={this.playAlienMessage}
 									wisdomMessageEnglish={this.state.wisdomMessageEnglish}
 									userChoseToPlayMessage={this.state.userChoseToPlayMessage}
+									giftAreaIsDisplayed={this.state.giftAreaIsDisplayed}
 						/>
 						<AudioPlayers alienWisdomMessageMp3={this.state.alienWisdomMessageMp3} />
 					</div>
