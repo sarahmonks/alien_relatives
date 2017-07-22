@@ -9,22 +9,22 @@ display: none;
 }
 
 
-#alien_gifts_area .gifts_area{
+#alien_gifts_area .gifts_area_content{
 z-index: 12;
 position: relative;
 padding: 10px 10px 5px 10px;
 }
-#alien_gifts_area .gifts_area .fa-heart{
+#alien_gifts_area .gifts_area_content .fa-heart{
 color: #f20c96;
 font-size: 38px;
 text-shadow: 0 0 0 #000,1px 1px 20px #f20c96;
 }
-#alien_gifts_area .gifts_area p{
+#alien_gifts_area .gifts_area_content p{
 text-align: center;
 
 }
 
-#alien_gifts_area .gifts_area #gift_love{
+#alien_gifts_area .gifts_area_content #gift_love{
 width: 110px;
 padding: 10px 0px 10px 0px;
 
@@ -34,7 +34,7 @@ display: block;
 
 }
 
-#no_thanks, #alien_gifts_area .gifts_area #thank_you{
+#no_thanks, #thank_you{
 padding: 10px 0px 10px 0px;
 margin-right: auto;
 margin-left: auto;
@@ -56,7 +56,7 @@ cursor: pointer;
 #alien_gifts_area .background_color{
 opacity: 1; 
 }
-#alien_gifts_area.show,#thank_you.show,{
+#alien_gifts_area.show, #thank_you.show{
 
 display: block;
 }
