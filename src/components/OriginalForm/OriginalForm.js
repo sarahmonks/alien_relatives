@@ -3,7 +3,7 @@ import React from 'react';
 import './original_form.css';
 
 
-const OriginalForm = function(props) {
+const OriginalForm = props => {
 		return (<div>
 					<h2>What Alien tribe are you related to?</h2>
 					<form id="alien_tribe_form" name="alien_tribe_form" method="post" action="">

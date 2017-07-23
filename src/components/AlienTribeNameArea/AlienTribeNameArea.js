@@ -3,7 +3,7 @@ import React from 'react';
 import './alien_tribe_name_area.css';
 
 
-const AlienTribeNameArea = function(props) {
+const AlienTribeNameArea = props => {
 
 	
 		return (<div>

@@ -2,7 +2,7 @@ import React from 'react';
 import './planet.css';
 
 import planet from '../../images/planet.png';
-const Planet = function(props) {
+const Planet = props => {
 
 	
 		return (<div className="planet">

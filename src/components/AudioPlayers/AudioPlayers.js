@@ -6,7 +6,7 @@ import alien_saucer_rattle from '../../alien_sounds/alien_saucer_rattle.mp3';
 import wit_woo from '../../alien_sounds/wit_woo.mp3';
 import boo from '../../alien_sounds/boo.mp3';
 
-const AudioPlayers = function(props) {
+const AudioPlayers = props => {
 		console.log('props.alienWisdomMessageMp3'  + props.alienWisdomMessageMp3);	
 
 		return (<div>
