@@ -9,7 +9,7 @@ import SpeechBubble from '../SpeechBubble/SpeechBubble';
 import './content.css';
 
 
-const Content = function(props) {
+const Content = props => {
 		return (<div id="container">
 					<div id="content">
 						<Planet />
@@ -28,11 +28,21 @@ const Content = function(props) {
 								meetAlien={props.meetAlien} 
 								userChoseToMeetAlien={props.userChoseToMeetAlien}
 								resultMessageIsDisplayed={props.resultMessageIsDisplayed} 
-								cupAndSaucerHaveArrived={props.cupAndSaucerHaveArrived} />
+								cupAndSaucerHaveArrived={props.cupAndSaucerHaveArrived} 
+								giftAreaIsDisplayed={props.giftAreaIsDisplayed}	
+								userGaveLove={props.userGaveLove}
+								userClickedGiftArea={props.userClickedGiftArea}
+						/>
 						<AlienGiftsArea giftAreaIsDisplayed={props.giftAreaIsDisplayed} 
-								giveLove={props.giveLove}/>
+								giveLove={props.giveLove}
+								userGaveLove={props.userGaveLove}
+								qtyOfLoveReceived={props.qtyOfLoveReceived}
+								/>
 						<SpeechBubble wisdomMessageEnglish={props.wisdomMessageEnglish}
-								userChoseToPlayMessage={props.userChoseToPlayMessage} />
+								userChoseToPlayMessage={props.userChoseToPlayMessage} 
+								userClickedGiftArea={props.userClickedGiftArea}
+								userGaveLove={props.userGaveLove}
+								/>
 					</div>
 				</div>
 		);

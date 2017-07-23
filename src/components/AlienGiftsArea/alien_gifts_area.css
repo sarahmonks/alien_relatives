@@ -60,3 +60,7 @@ opacity: 1;
 
 display: block;
 }
+#no_thanks.hide{
+
+display: none;
+}

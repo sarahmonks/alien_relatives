@@ -1,0 +1,58 @@
+I am coming from a background of using jQuery and javascript a lot for DOM manipulation.
+I am currently re-writing one of my applications (made using jQuery and JavaScript) to use React.js instead.
+
+I am having a little trouble figuring out how to add multiple conditions for classNames when rendering HTML.
+
+
+I have two states userChoseToMeetAlien and cupAndSaucerHaveArrived in my main component class called AppContainer.
+
+
+The initial state of the `userChoseToMeetAlien` and `cupAndSaucerHaveArrived` booleans are set to false as follows.
+
+    constructor(props) {
+    		super(props);
+    		this.state = {
+    		userChoseToMeetAlien: false,
+    		cupAndSaucerHaveArrived: false
+    	};
+    }
+
+
+I have a stateless component called CupAndSaucer and these states are passed in as properties.
+
+I would like to add different classes to the HTML (rendered in CupAndSaucer) depending on the values of these properties.
+
+Here is the pseudocode of how I would like things to work:
+
+ if(props.userChoseToMeetAlien is true AND props.cupAndSaucerHaveArrived is false) then
+        add the move_animation class   
+    else if(props.userChoseToMeetAlien is false AND props.cupAndSaucerHaveArrived is true)
+        add the full_position class
+    else 
+        //both properties are false
+        should have no classes
+    end
+
+
+Here is my CupAndSaucer component where I have attempted to add the classes.
+As you can see it is not ideal as the full_position class is added when both userChoseToMeetAlien and cupAndSaucerHaveArrived are false.
+
+    const CupAndSaucer = function(props) {	
+    	return (<div id="cup_and_saucer_container" 
+                   className={((props.userChoseToMeetAlien === true  && props.cupAndSaucerHaveArrived === false) ? 'move_animation' : 'full_position')}>	
+    		</div>
+    	);
+     
+    }
+
+
+
+
+Initially when the app loads (i.e when `userChoseToMeetAlien` and `cupAndSaucerHaveArrived` are both false) there should be no classes added to the `cup_and_saucer_container` div.
+
+When the user chooses to meet the alien, the `userChoseToMeetAlien` state is set to true, `cupAndSaucerHaveArrived` is still set to false, and therefore the `move_animation` class is applied to `cup_and_saucer_container`.
+
+Once I set `cupAndSaucerHaveArrived` to true (approx ten seconds later i.e after the animation is finished) I would like to then add the full_position class.
+
+
+

@@ -4,14 +4,19 @@ import './alien_information.css';
 import ResultMessage from '../ResultMessage/ResultMessage';
 import MeetAlienButtons from '../MeetAlienButtons/MeetAlienButtons';
 
-const AlienInformation = function(props) {
+const AlienInformation = props => {
 
 		const resultMessageIsDisplayed= props.resultMessageIsDisplayed;
 
 		let resultMessageArea = null;
     	if (resultMessageIsDisplayed) {
       		resultMessageArea = <ResultMessage userChoseToMeetAlien={props.userChoseToMeetAlien} 
-      									cupAndSaucerHaveArrived={props.cupAndSaucerHaveArrived}/>;
+      									cupAndSaucerHaveArrived={props.cupAndSaucerHaveArrived}
+      									giftAreaIsDisplayed={props.giftAreaIsDisplayed}
+      									alienTribeName={props.alienTribeName}
+      									userGaveLove={props.userGaveLove}
+      									userClickedGiftArea={props.userClickedGiftArea}
+      									/>;
     	} else {
 
       		resultMessageArea = <MeetAlienButtons meetAlien={props.meetAlien} />;

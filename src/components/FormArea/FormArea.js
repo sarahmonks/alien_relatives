@@ -5,7 +5,7 @@ import './form_area.css';
 import OriginalForm from '../OriginalForm/OriginalForm';
 import AlienInformation from '../AlienInformation/AlienInformation';
 
-const FormArea = function(props) {
+const FormArea = props => {
 		const originalFormIsDisplayed = props.originalFormIsDisplayed;
 
 		let userInterativeArea = null;
@@ -17,7 +17,10 @@ const FormArea = function(props) {
       											userChoseToMeetAlien={props.userChoseToMeetAlien} 
       											resultMessageIsDisplayed={props.resultMessageIsDisplayed}
       											cupAndSaucerHaveArrived={props.cupAndSaucerHaveArrived}
-      							/>;
+                            giftAreaIsDisplayed={props.giftAreaIsDisplayed}
+                            userGaveLove={props.userGaveLove}
+                            userClickedGiftArea={props.userClickedGiftArea}
+                                  							/>;
     	
     	}
 

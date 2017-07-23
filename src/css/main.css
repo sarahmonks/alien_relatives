@@ -121,7 +121,7 @@ text-shadow: 0 0 0 #000, 1px 1px 15px #05fbf3;
 
 
 
-
+/*styling for different size text*/
 .normal_text{
 color: #fff;
 }
@@ -194,8 +194,11 @@ text-align: center;
 }
 
 .pink_text{
-color: #f20c96;
+color: #f20c96 !important;
 text-shadow: 0 0 0 #000,1px 1px 20px #f20c96;
+}
+.text_center{
+text-align: center;
 }
 
 

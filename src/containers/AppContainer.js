@@ -33,6 +33,9 @@ class AppContainer extends Component {
 			cupAndSaucerHaveArrived: false,
 			userChoseToPlayMessage: false,
 			giftAreaIsDisplayed: false,
+			userWasPromptedToGiveLove: false,
+			userClickedGiftArea: false,
+			userGaveLove: false,
 			qtyOfLoveReceived: 0
 		};
 		this.submitForm = this.submitForm.bind(this);
@@ -192,12 +195,12 @@ class AppContainer extends Component {
 
 	}
 
-	giveLove (loveWasReceived){
-		
+	giveLove (userGaveLove){
+		this.setState({userClickedGiftArea: true}); 	
 		//when user presses love button when 3 seconds and then call the hideGifts function to fade out the gifts area
 		//intvHideGifts = setInterval(function(){hideGifts();}, 3000);
-
-		if(loveWasReceived){
+		this.setState({userGaveLove: userGaveLove}); 	
+		if(userGaveLove){
 			//play the "wit_woo" audio file which is stored in audio player 3
 			this.audio_player_3.play();
 
@@ -208,16 +211,13 @@ class AppContainer extends Component {
 		
 			xmlhttpGiveLove.open("POST", "http://localhost/alien_relatives/updateLove.php", true);		
 			xmlhttpGiveLove.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			//console.log(alienTribeId);
+
 			//send our alienTribeId variable to updateLove.php file in order to process the data there
 			xmlhttpGiveLove.send('alienTribeId=' + alienTribeId);
 
 		}else{
 			//play the "boo" audio file which is stored in audio player 4
 			this.audio_player_4.play();
-			//change text in speech bubble
-			//$('.speech_bubble p').html("boo hoo!!!");
-			document.getElementById('result_message_area').innerHTML = "<p class='large_text'>He's a bit upset!!!</p>";
 		}
 		
 	}
@@ -231,13 +231,13 @@ class AppContainer extends Component {
 			qtyOfLoveReceived = newQtyOfLove;
 
 			//we update our qty_of_love html element with the new value 
-			document.getElementById('qty_of_love').innerHTML = "(" + newQtyOfLove + ")";
+			//document.getElementById('qty_of_love').innerHTML = "(" + newQtyOfLove + ")";
 
 
 
 			//change text in speech bubble
 			//$('.speech_bubble p').html("Thank youuuuu!!!");
-			document.getElementById('result_message_area').innerHTML = "<p class='large_text'>He's all loved up!!!</p>";
+			//document.getElementById('result_message_area').innerHTML = "<p class='large_text'>He's all loved up!!!</p>";
 		//	$('#result_message_area p').addClass('pink_text');
 			//hide the 'no thanks' link because the user has already given love	
 		//	$('#no_thanks').hide();
@@ -265,7 +265,10 @@ class AppContainer extends Component {
 									wisdomMessageEnglish={this.state.wisdomMessageEnglish}
 									userChoseToPlayMessage={this.state.userChoseToPlayMessage}
 									giftAreaIsDisplayed={this.state.giftAreaIsDisplayed}
+									qtyOfLoveReceived={this.state.qtyOfLoveReceived}
 									giveLove={this.giveLove}
+									userGaveLove={this.state.userGaveLove}
+									userClickedGiftArea={this.state.userClickedGiftArea}
 						/>
 						<AudioPlayers alienWisdomMessageMp3={this.state.alienWisdomMessageMp3} />
 					</div>
