@@ -106,38 +106,19 @@ class AppContainer extends Component {
 
 
 				this.setState({alienWisdomMessageMp3: app_root_url + alienTribeResultsArray['alienWisdomMessageMp3']}); 
+
 				//create a player with the audio tag with id audio_player_2 where the wisdom message will be loaded.
-
 				this.audio_player_2 = document.getElementById('audio_player_2');
-
 
 				//create array of the sounds we received from the database
 				var alienSoundMp3Array = new Array(alienTribeResultsArray['alienWisdomMessageMp3']);
-		
-				//load sound that we received from the database into player2
-				//loadData(player2, 2, alienSoundMp3Array, 0);
-				//console.log(alienTribeImage);
-
-				//load the alien tribe images into the img tags
-				//$('#alien_figure').attr('src', alienTribeImage);
-				//$('#alien_figure_hands').attr('src', alienTribeImageHands);
-				//document.getElementById('alien_tribe_name').innerHTML = alienTribeName;
-				//document.getElementById('user_interactive_area').innerHTML = alienTribeHtmlOutput;
-				//document.getElementById('qty_of_love').innerHTML = "(" + qtyOfLoveReceived + ")";
-			//	document.getElementById('meet_alien_button_yes').addEventListener('click', function() { meetAlien(true); }, false);
-				//document.getElementById('meet_alien_button_no').addEventListener('click', function() { meetAlien(false); }, false);
 			}
 
 	}
 	timeAnimation(){
 		//alien has now arrived in the cup and saucer so set cupAndSaucerHaveArrived to true	
-		//$("#cup_and_saucer_container").addClass('full_position').removeClass('rotate_cup_and_saucer_animation');
-		//$(".saucer_solo").removeClass('saucer_shake');
-		//$(".alien_figure").addClass('show_alien'); 
-		//$(".alien_figure_hands").addClass('show_alien');
-		//$(".play_message").addClass('show_play_button');
 		this.setState({cupAndSaucerHaveArrived: true}); 	
-		//document.getElementById('result_message_area').innerHTML = "<p class='large_text'>He has a wisdom message for you!!!</p>";
+		//clear the interval as we will only want to run this method once.
 		clearInterval(intvAnimation);
 
 	}
@@ -164,30 +145,33 @@ class AppContainer extends Component {
 			var self;
 			self = this;
 			intvAnimation = setInterval(function(){self.timeAnimation();}, 10000);
-		}else{
-
-			//if the user chooses not to meet the alien do this
-		
 		}
 	}
 	playAlienMessage (){
+		//This method is called when a user has chosen to play the message (i.e presses the play_message button)
 		console.log('test');
 		this.setState({userChoseToPlayMessage: true}); 	
+		//load and play audio_player_2 (which contains the wisdom message as the src)
 		this.audio_player_2.load();
 		this.audio_player_2.play();
+
+		//we now set a timer for the showGifts method to run after the message has been played.
+		//we have to create a local variable as the this keyword will be out of scope when using setInterval
 		var self;
 		self = this;
-		//the user has chosen to play the message
-		//we now set a timer for the showGifts method to run after the message has been played.
 		intvShowGifts = setInterval(function(){self.showGifts();}, 6500);
 	}
 	showGifts (){
+		//This method is called from the playAlienMessage method after a user has chosen to play the wisdom message.
+		//The purpose of this method is to display the gifts area to the user so they can give love to the alien.
 		//set giftAreaIsDisplayed to true. This state will be used in the AlienGiftsArea component to determine which css classes are output
 		this.setState({giftAreaIsDisplayed: true}); 	
-		//clear the interval
+		//clear the interval as we only want this method to be called once.
 		clearInterval(intvShowGifts);
 
-		//load the audio players which will play the feedback message after user chooses to give a gift or not
+		//create and load audio_player_3 which containas the wit_woo mp3 file.
+		//create and load audio_player_4 which contains the boo mp3 file. 
+		//These sounds will be used as feedback messages after the user chooses to give a gift or not
 		this.audio_player_3 = document.getElementById('audio_player_3');
 		this.audio_player_4 = document.getElementById('audio_player_4');
 		this.audio_player_3.load();
@@ -234,10 +218,6 @@ class AppContainer extends Component {
 			//document.getElementById('qty_of_love').innerHTML = "(" + newQtyOfLove + ")";
 
 
-
-			//change text in speech bubble
-			//$('.speech_bubble p').html("Thank youuuuu!!!");
-			//document.getElementById('result_message_area').innerHTML = "<p class='large_text'>He's all loved up!!!</p>";
 		//	$('#result_message_area p').addClass('pink_text');
 			//hide the 'no thanks' link because the user has already given love	
 		//	$('#no_thanks').hide();
