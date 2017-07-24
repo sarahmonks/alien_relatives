@@ -15,7 +15,7 @@ var intvHideGifts;
 //the root of the url where the images and mp3s for the app are located.
 var app_root_url = 'http://www.gamuzic.com/alien_relatives/';
 var alienTribeId;
-var qtyOfLoveReceived;
+
 class AppContainer extends Component { 
 	//This class is the main component of the application.
 	constructor(props) {
@@ -171,7 +171,8 @@ class AppContainer extends Component {
 
 		//create and load audio_player_3 which containas the wit_woo mp3 file.
 		//create and load audio_player_4 which contains the boo mp3 file. 
-		//These sounds will be used as feedback messages after the user chooses to give a gift or not
+		//These sounds will be used as feedback messages after the user chooses to give a gift or not.
+		//They will be played in the giveLove method.
 		this.audio_player_3 = document.getElementById('audio_player_3');
 		this.audio_player_4 = document.getElementById('audio_player_4');
 		this.audio_player_3.load();
@@ -206,23 +207,13 @@ class AppContainer extends Component {
 		
 	}
 	updateLoveCallback (){
-		//this is the callback function which is called when the ajax response comes back.
+		//this is the callback function which is called when the ajax response comes back from giveLove.
 		if(xmlhttpGiveLove.readyState == 4 && xmlhttpGiveLove.status == 200){
 			//we receive the new quantity of love back in our response and store in newQtyOfLove 
 			var newQtyOfLove = xmlhttpGiveLove.responseText;
+			//update the qtyOfLoveReceived state with our new value
+			this.setState({qtyOfLoveReceived:newQtyOfLove}); 
 
-			//update our global variable
-			qtyOfLoveReceived = newQtyOfLove;
-
-			//we update our qty_of_love html element with the new value 
-			//document.getElementById('qty_of_love').innerHTML = "(" + newQtyOfLove + ")";
-
-
-		//	$('#result_message_area p').addClass('pink_text');
-			//hide the 'no thanks' link because the user has already given love	
-		//	$('#no_thanks').hide();
-			//$('#thank_you').show();
-			
 		}
 
 	}
