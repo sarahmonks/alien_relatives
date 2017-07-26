@@ -11,6 +11,7 @@ const AlienInformation = props => {
 		let resultMessageArea = null;
     	if (resultMessageIsDisplayed) {
       		resultMessageArea = <ResultMessage userChoseToMeetAlien={props.userChoseToMeetAlien} 
+                        resultMessageIsDisplayed={props.resultMessageIsDisplayed}
       									cupAndSaucerHaveArrived={props.cupAndSaucerHaveArrived}
       									giftAreaIsDisplayed={props.giftAreaIsDisplayed}
       									alienTribeName={props.alienTribeName}
@@ -23,11 +24,11 @@ const AlienInformation = props => {
     	}
 
 		return (<div>
-					<p className='normal_text'>Hi {props.firstName}!!
-						<br />You are related to the <span className='large_text'>{props.alienTribeName}</span> Alien Tribe! 
-						<br />These are friendly creatures and one of them would like to meet you. Would you like to meet him?
-					</p>
-					{resultMessageArea}
+  					<p className='normal_text'>Hi {props.firstName}!!
+    						<br />You are related to the <span className='large_text'>{props.alienTribeName}</span> Alien Tribe! 
+    						<br />These are friendly creatures and one of them would like to meet you. Would you like to meet him?
+  					</p>
+  					{resultMessageArea}
 				</div>	
 		);
 }
