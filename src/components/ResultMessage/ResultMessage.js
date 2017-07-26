@@ -12,7 +12,7 @@ const ResultMessage = props => {
 		const giftAreaIsDisplayed= props.giftAreaIsDisplayed;
 		const userGaveLove= props.userGaveLove;
 		const userClickedGiftArea=props.userClickedGiftArea;
-
+		const resultMessageIsDisplayed=props.resultMessageIsDisplayed;
 		let output = null;
     	if (cupAndSaucerHaveArrived) {
     		if (giftAreaIsDisplayed) {
@@ -38,8 +38,8 @@ const ResultMessage = props => {
       		output = (userChoseToMeetAlien === true ? 'Here comes the flying saucer!' : 'Awwwwww no');
     	}
 
-		return (<div id='result_message_area' className={(props.userGaveLove === true ? 'pink_text' : '')}>
-						<p className='large_text text_center'>
+		return (<div id='result_message_area' className={(props.resultMessageIsDisplayed === true ? 'full_width' : '')} >
+						<p className={"large_text text_center " + (props.userGaveLove === true ? 'pink_text' : '')}>
 							{output}
 						</p>
 				</div>

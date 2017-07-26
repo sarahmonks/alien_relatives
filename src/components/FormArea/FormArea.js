@@ -25,11 +25,11 @@ const FormArea = props => {
     	}
 
 		return (<div id="main_content_area">
-					<div className="background_color"></div>
-					<div id="user_interactive_area">	
-						{userInterativeArea}	
-					</div>
-				</div>
+      					<div className="background_color"></div>
+      					<div id="user_interactive_area">	
+      						  {userInterativeArea}	
+      					</div>
+				  </div>
 		);
  
 }
