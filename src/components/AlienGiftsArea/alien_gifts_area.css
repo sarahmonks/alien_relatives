@@ -5,7 +5,19 @@ left: 36%;
 width: 31%;
 min-height: 180px;
 z-index: 13;
-display: none;
+display:none;
+opacity: 0;
+overflow: hidden;
+
+-webkit-transition: opacity 1s; /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+-moz-transition: opacity 1s;
+-o-transition: opacity 1s;
+transition: opacity 1s;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+
+-webkit-transition-delay: 3s; /* Safari */
+-moz-transition-delay: 3s; 
+-o-transition-delay: 3s;
+transition-delay: 3s;
 }
 
 
@@ -56,8 +68,12 @@ cursor: pointer;
 #alien_gifts_area .background_color{
 opacity: 1; 
 }
-#alien_gifts_area.show, #thank_you.show{
+#alien_gifts_area.show{
+display:block;
+opacity: 1;
+}
 
+#thank_you.show{
 display: block;
 }
 #no_thanks.hide{

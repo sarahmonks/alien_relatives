@@ -3,6 +3,7 @@ import './alien_gifts_area.css';
 
 
 const AlienGiftsArea = props => {
+	console.log(props.userGaveLove);
 		//This is a stateless component used in the AlienInformation component
 		//To this component, we pass in a property called meetAlien (which is a method defined in the main AppContainer class).
 		return (<div id="alien_gifts_area" className={(props.giftAreaIsDisplayed === true ? 'show': '')}>
