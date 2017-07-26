@@ -5,16 +5,17 @@ import Header from '../components/Header/Header';
 import Content from '../components/Content/Content';
 import AudioPlayers from '../components/AudioPlayers/AudioPlayers';
 
-//define global variables
+//define global variables for ajax requests
 var xmlhttpSubmitForm;
 var xmlhttpGiveLove;
 
+//define global variables for intervals
 var intvAnimation;
 var intvShowGifts;
 var intvHideGifts;
 //the root of the url where the images and mp3s for the app are located.
+//The php server files which connect to the database are also located here
 var app_root_url = 'http://www.gamuzic.com/alien_relatives/';
-var alienTribeId;
 
 class AppContainer extends Component { 
 	//This class is the main component of the application.
@@ -23,6 +24,7 @@ class AppContainer extends Component {
     		this.state = {
 			originalFormIsDisplayed: true,
 			firstName: '',
+			alienTribeId: 0,
 			alienTribeName: '',
 			alienTribeImage: '',
 			alienTribeImageHands: '',
@@ -45,8 +47,12 @@ class AppContainer extends Component {
 		this.timeAnimation = this.timeAnimation.bind(this);
 		this.playAlienMessage = this.playAlienMessage.bind(this);
 		this.showGifts = this.showGifts.bind(this);
+		this.hideGifts = this.hideGifts.bind(this);
 		this.giveLove = this.giveLove.bind(this);
 		this.updateLoveCallback = this.updateLoveCallback.bind(this);
+		this.resetGiftsAreaStates = this.resetGiftsAreaStates.bind(this);
+		this.clearTimers = this.clearTimers.bind(this);
+		
   	}	
 	componentDidMount() {
 		//the main component has mounted therefore the AudioPlayers component has mounted also so we create audio players for the audio
@@ -55,21 +61,20 @@ class AppContainer extends Component {
 		this.audio_player_1 = document.getElementById('audio_player_1');
 		this.audio_player_0.load();
 		this.audio_player_1.load();
+
     }
 	createXHR(){
 	    try{
 	        return new XMLHttpRequest();
 	    }catch(e){
 	    	//this is causing causing error on chrome so we'll comment it out for the moment
-	    	//console.log(e);
-	        //try{
-	         //  return new ActiveXObject("Microsoft.XMLHTTP");
+	        // try{
+	        //   return new ActiveXObject("Microsoft.XMLHTTP");
 	        //}catch(e){
 	        //   return new ActiveXObject("Msxml2.XMLHTTP");
-	       //}
+	        //}
 	    }
 	}
-
 	submitForm (){
 		//this function is called when the original form is submitted with the users first name.
 		//we do an ajax request to a php file called formHandler which queries the database for the results that
@@ -94,7 +99,7 @@ class AppContainer extends Component {
 				var alienTribeResultsArray = JSON.parse(responseDataArray[1]);
 
 				//store alien tribe id so we can use it later when updating alien love
-				alienTribeId = alienTribeResultsArray['alienTribeId']; 
+				this.setState({alienTribeId: alienTribeResultsArray['alienTribeId']}); 
 				this.setState({alienTribeName: alienTribeResultsArray['alienTribeName']}); 
 				this.setState({alienTribeImage: app_root_url + alienTribeResultsArray['alienTribeImage']});
 				console.log(alienTribeResultsArray['alienTribeImage']);
@@ -123,9 +128,6 @@ class AppContainer extends Component {
 
 	}
 	meetAlien (userChoseToMeetAlien){
-		//make results_message_area wider for inserting message to user
-		//$("#result_message_area").addClass('full_width');
-
 		//This method is called when a user is asked if they would like to meet the alien (in the AlienInformation component).
 		//'yes' and 'no' buttons (with onClick listeners for this function) exist in the MeetAlienButtons component.
 
@@ -149,14 +151,19 @@ class AppContainer extends Component {
 	}
 	playAlienMessage (){
 		//This method is called when a user has chosen to play the message (i.e presses the play_message button)
-		console.log('test');
+		//After the message is played, the gift area will appear.
+		//Firstly clear all intervals in case this is the second time the user will play the message.
+		this.clearTimers();
+		//Reset the gift area states in case the gift area has already been displayed.
+		this.resetGiftsAreaStates();
+		//set the userChoseToPlayMessage state to true. This state will be used in the SpeechBubble component.
 		this.setState({userChoseToPlayMessage: true}); 	
 		//load and play audio_player_2 (which contains the wisdom message as the src)
 		this.audio_player_2.load();
 		this.audio_player_2.play();
 
 		//we now set a timer for the showGifts method to run after the message has been played.
-		//we have to create a local variable as the this keyword will be out of scope when using setInterval
+		//we have to create a local variable as the 'this' keyword will be out of scope when using setInterval
 		var self;
 		self = this;
 		intvShowGifts = setInterval(function(){self.showGifts();}, 6500);
@@ -181,10 +188,15 @@ class AppContainer extends Component {
 	}
 
 	giveLove (userGaveLove){
+		//This method is called when a user chooses to give love or not in the AlienGiftsArea
+		this.clearTimers();
+		//when user presses a gift button, wait 3 seconds and then call the hideGifts function to fade out the gifts area
+		var self;
+		self = this;
+		intvHideGifts = setInterval(function(){self.hideGifts();}, 3000);
 		this.setState({userClickedGiftArea: true}); 	
-		//when user presses love button when 3 seconds and then call the hideGifts function to fade out the gifts area
-		//intvHideGifts = setInterval(function(){hideGifts();}, 3000);
 		this.setState({userGaveLove: userGaveLove}); 	
+		console.log(this.state.userGaveLove);
 		if(userGaveLove){
 			//play the "wit_woo" audio file which is stored in audio player 3
 			this.audio_player_3.play();
@@ -194,11 +206,11 @@ class AppContainer extends Component {
 			xmlhttpGiveLove = this.createXHR();
 			xmlhttpGiveLove.onreadystatechange = this.updateLoveCallback;
 		
-			xmlhttpGiveLove.open("POST", "http://localhost/alien_relatives/updateLove.php", true);		
+			xmlhttpGiveLove.open("POST", app_root_url + "updateLove.php", true);		
 			xmlhttpGiveLove.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
 			//send our alienTribeId variable to updateLove.php file in order to process the data there
-			xmlhttpGiveLove.send('alienTribeId=' + alienTribeId);
+			xmlhttpGiveLove.send('alienTribeId=' + this.state.alienTribeId);
 
 		}else{
 			//play the "boo" audio file which is stored in audio player 4
@@ -216,6 +228,23 @@ class AppContainer extends Component {
 
 		}
 
+	}
+	hideGifts (){
+		this.setState({giftAreaIsDisplayed: false}); 
+		clearInterval(intvHideGifts);
+	}
+	resetGiftsAreaStates (){
+		//This method is used 
+		console.log('reset');
+		this.setState({userClickedGiftArea: false}); 	
+		this.setState({userGaveLove: false}); 	
+
+	}
+	clearTimers (){
+		//clear all intervals
+		clearInterval(intvHideGifts);
+		clearInterval(intvShowGifts);
+		clearInterval(intvAnimation);
 	}
 	render() {
 		return(<div>
