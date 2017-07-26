@@ -1,0 +1,27 @@
+#result_message_area{
+margin: 5px auto 5px auto;
+width: 155px;
+}
+
+
+#result_message_area.full_width{
+width: 98%;
+text-align: center;
+}
+
+#result_message_area .button_style{
+font-size: 1.7rem;
+color: #fff;
+text-shadow: 0 0 0 #000, 1px 1px 10px #fff;
+padding: 10px 10px;
+margin-right: 10px;
+float: left;
+width: 40px;
+text-align: center;
+cursor: pointer;
+}
+
+#result_message_area .button_style:active, #result_message_area .button_style:hover{
+color: #000;
+text-shadow: none;
+}
