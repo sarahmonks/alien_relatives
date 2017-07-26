@@ -12,6 +12,7 @@ const ResultMessage = props => {
 		const giftAreaIsDisplayed= props.giftAreaIsDisplayed;
 		const userGaveLove= props.userGaveLove;
 		const userClickedGiftArea=props.userClickedGiftArea;
+
 		let output = null;
     	if (cupAndSaucerHaveArrived) {
     		if (giftAreaIsDisplayed) {
@@ -23,7 +24,15 @@ const ResultMessage = props => {
 
     			}
     		}else{
-    			output = 'He has a wisdom message for you!';
+    			//giftAreaIsDisplayed is false here.
+    			if(userClickedGiftArea){
+    				//We should come here after the hideGifts method is called in AppContainer.js as we will have set giftAreaIsDisplayed to false again.
+    				output = 'Have a good day!!!';
+
+    			}else{
+
+    				output = 'He has a wisdom message for you!';
+    			}
     		}
     	} else {
       		output = (userChoseToMeetAlien === true ? 'Here comes the flying saucer!' : 'Awwwwww no');
