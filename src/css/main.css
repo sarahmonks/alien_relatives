@@ -252,24 +252,18 @@ background-color: #0cfaf2;
 
 .button_style{
 margin: 10px auto 10px auto;
-
 outline: 0; 
 border: 0;
-
 -webkit-box-shadow: inset 0px -1px 0px 0px rgba(11, 10, 10, 1), inset 0px 1px 0px 0px rgba(172, 172,172, 1);
 -moz-box-shadow:    inset 0px -1px 0px 0px rgba(11, 10, 10,1), inset 0px 1px 0px 0px rgba(172, 172,172, 1);
 box-shadow:        inset 0px -1px 0px 0px rgba(11, 10, 10, 1), inset 0px 1px 0px 0px rgba(172, 172,172, 1);
-
 font-weight: bold;
 text-align: center;
-
-
 border-left: 1px solid #525353;
 border-right: 1px solid #525353;
 display: block;
 cursor: pointer;
 font-size: 1.7rem;
-
 text-shadow: 0 0 0 #000, 1px 1px 10px #fff;
 }
 

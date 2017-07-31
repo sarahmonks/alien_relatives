@@ -84,7 +84,7 @@ class AppContainer extends Component {
 		if(firstName != "" && firstName != null){
 			xmlhttpSubmitForm = this.createXHR(); 
 			xmlhttpSubmitForm.onreadystatechange = this.submitFormCallback;
-			xmlhttpSubmitForm.open("POST", "http://localhost/alien_relatives/formHandler.php", true);		
+			xmlhttpSubmitForm.open("POST", app_root_url + "formHandler.php", true);		
 			xmlhttpSubmitForm.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			//send the firstName variable to our formHandler.php file
 			xmlhttpSubmitForm.send('firstName=' + firstName);
