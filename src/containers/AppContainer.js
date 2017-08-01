@@ -139,8 +139,8 @@ class AppContainer extends Component {
 		if(userChoseToMeetAlien){
 			//if the user chooses to meet the alien we do this
 			//play the alien_saucer_rattle and alien_synth_melody audio files
-			//this.audio_player_0.play();
-			//this.audio_player_1.play();
+			this.audio_player_0.play();
+			this.audio_player_1.play();
 
 			//set a timer for 10 seconds so we know when the animation is finished and we can change the state of cupAndSaucerHaveArrived to true
 			//see the timeAnimation method
