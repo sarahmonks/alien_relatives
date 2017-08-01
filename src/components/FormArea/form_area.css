@@ -15,15 +15,7 @@ min-height: 100px;
 min-height: 100px;
 padding: 7px 7px 3px 7px;
 }
-label{
-font-size: 1.4rem;
-margin:4px 0px 3px 0px;
-font-weight: normal;
-}
-input[type=text], input[type=email], textarea{
-font-size: 1.4rem;
-width: 70%;
-}
+
 }
 
 @media screen and (min-width: 480px) and (max-width: 719px) { 
@@ -39,15 +31,7 @@ min-height: 100px;
 min-height: 150px;
 padding: 10px 10px 15px 10px;
 }
-label{
-font-size: 1.6rem;
-margin:7px 0px 5px 0px;
-font-weight: normal;
-}
-input[type=text], input[type=email], textarea{
-font-size: 1.5rem;
-width: 60%;
-}
+
 }
 
 @media screen and (min-width: 720px){ 
@@ -66,15 +50,7 @@ min-height: 170px;
 min-height: 170px;
 padding: 10px 10px 15px 10px;
 }
-label{
-font-size: 1.7rem;
-margin:10px 0px 8px 0px;
-font-weight: bold;
-}
-input[type=text], input[type=email], textarea{
-font-size: 1.5rem;
-width: 56%;
-}
+
 }
 
 
@@ -105,46 +81,4 @@ max-height: 100%;
 position: absolute;
 border: 1px solid #565555;
 border-radius: 10px;
-}
-label{
-display:block;
-z-index: 3;
-color: #fff;
-text-align: center;
-}
-
-input[type=text], input[type=email], textarea{
-border: 0px;
-outline: 0px;
-background:#dfdfdf;
-border:1px solid #dedede;
-font-family:Arial,Helvetica,sans-serif;
-color:#000;
-border-radius:2px;  /*opera*/
--moz-border-radius:2px;/*firefox*/
--webkit-border-radius:2px;/*chrome and safari*/
-padding-left: 5px;
-margin:0px auto 15px auto;
-display: block;
-}
-
-input[type=text], input[type=email]{
-height: 28px;
-}
-text_area{
-height: 90px;
-
-}
-
-/*styling to prevent chrome's yellow colour input field after autocomplete*/
-input:-webkit-autofill {
--webkit-box-shadow: inset 0px 0px 0px 100px #c8c8c8;
-}
-
-input:-moz-placeholder{ 
-color: #636466; 	
-}
-
-input::-webkit-input-placeholder{
-color: #636466; 	
 }
