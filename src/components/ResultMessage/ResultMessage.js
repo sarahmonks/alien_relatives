@@ -5,7 +5,16 @@ import ShowSomeLovePrompt from '../ShowSomeLovePrompt/ShowSomeLovePrompt';
 
 const ResultMessage = props => {
 		//This is a stateless component used in the AlienInformation component
-		//This component has a property called userChoseToMeetAlien which is a state defined in the main AppContainer class.
+        //It contains the HTML to display a feedback message to the user depending on the current state of the application. 
+
+        //To this component, we pass in the following states as properties (These states are defined in AppContainer):
+        //alienTribeName (string)
+        //userChoseToMeetAlien (boolean)
+        //resultMessageIsDisplayed (boolean)
+        //cupAndSaucerHaveArrived (boolean)
+        //giftAreaIsDisplayed (boolean)
+        //userGaveLove (boolean)
+        //userClickedGiftArea (boolean)
 
 		const userChoseToMeetAlien = props.userChoseToMeetAlien;
 		const cupAndSaucerHaveArrived = props.cupAndSaucerHaveArrived;
@@ -17,7 +26,7 @@ const ResultMessage = props => {
     	if (cupAndSaucerHaveArrived) {
     		if (giftAreaIsDisplayed) {
     			if(userClickedGiftArea){
-    		
+    		          //if the user chose to give love then output positive feedback otherwise output negative feedback.
     				output = (userGaveLove === true ? "He's all loved up!!!" : "He's a bit upset!!!");
     			}else{
 					output = <ShowSomeLovePrompt alienTribeName={props.alienTribeName} />;
