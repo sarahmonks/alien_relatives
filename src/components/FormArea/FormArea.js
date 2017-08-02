@@ -6,6 +6,22 @@ import OriginalForm from '../OriginalForm/OriginalForm';
 import AlienInformation from '../AlienInformation/AlienInformation';
 
 const FormArea = props => {
+    //This is a stateless component used in the Content component
+    //This component contains the HTML to display the area where the form is displayed and also the feedback message.
+
+    //To this component, we pass in the following states as properties (These states are defined in AppContainer):
+    //originalFormIsDisplayed (boolean)
+    //alienTribeName (string)
+    //firstName (string)
+    //userChoseToMeetAlien (boolean)
+    //resultMessageIsDisplayed (boolean)
+    //cupAndSaucerHaveArrived (boolean)
+    //giftAreaIsDisplayed (boolean)
+    //userGaveLove (boolean)
+    //userClickedGiftArea (boolean)
+    //And we pass in the following method as a property (defined in AppContainer):
+    //submitForm
+    //meetAlien (This method takes in true or false as a parameter)
 		const originalFormIsDisplayed = props.originalFormIsDisplayed;
 
 		let userInterativeArea = null;

@@ -4,6 +4,12 @@ import './original_form.css';
 
 
 const OriginalForm = props => {
+	 //This is a stateless component used in the FormArea component
+    //This component contains the HTML for the original form where the user submits their name.
+
+    //To this component, we pass in the following method as a property (defined in AppContainer):
+    //submitForm
+
 		return (<div>
 					<h2>What Alien tribe are you related to?</h2>
 					<form id="alien_tribe_form" name="alien_tribe_form" method="post" action="">
