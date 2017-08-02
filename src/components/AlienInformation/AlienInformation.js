@@ -5,7 +5,20 @@ import ResultMessage from '../ResultMessage/ResultMessage';
 import MeetAlienButtons from '../MeetAlienButtons/MeetAlienButtons';
 
 const AlienInformation = props => {
-
+    //This is a stateless component used in the FormArea component
+    //This component contains the HTML to display information about the related Alien tribe.
+    
+    //To this component, we pass in the following states as properties (These states are defined in AppContainer):
+    //alienTribeName (string)
+    //firstName (string)
+    //userChoseToMeetAlien (boolean)
+    //resultMessageIsDisplayed (boolean)
+    //cupAndSaucerHaveArrived (boolean)
+    //giftAreaIsDisplayed (boolean)
+    //userGaveLove (boolean)
+    //userClickedGiftArea (boolean)
+    //And we pass in the following method as a property (defined in AppContainer):
+    //meetAlien (This method takes in true or false as a parameter)
 		const resultMessageIsDisplayed= props.resultMessageIsDisplayed;
 
 		let resultMessageArea = null;

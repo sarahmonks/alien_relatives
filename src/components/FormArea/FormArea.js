@@ -29,14 +29,15 @@ const FormArea = props => {
       		userInterativeArea = <OriginalForm submitForm={props.submitForm} />;
     	} else {
       		userInterativeArea = <AlienInformation alienTribeName={props.alienTribeName} 
-      											firstName={props.firstName} meetAlien={props.meetAlien} 
-      											userChoseToMeetAlien={props.userChoseToMeetAlien} 
-      											resultMessageIsDisplayed={props.resultMessageIsDisplayed}
-      											cupAndSaucerHaveArrived={props.cupAndSaucerHaveArrived}
-                            giftAreaIsDisplayed={props.giftAreaIsDisplayed}
-                            userGaveLove={props.userGaveLove}
-                            userClickedGiftArea={props.userClickedGiftArea}
-                                  							/>;
+                                                  firstName={props.firstName} 
+                                                  meetAlien={props.meetAlien} 
+                                                  userChoseToMeetAlien={props.userChoseToMeetAlien} 
+                                                  resultMessageIsDisplayed={props.resultMessageIsDisplayed}
+                                                  cupAndSaucerHaveArrived={props.cupAndSaucerHaveArrived}
+                                                  giftAreaIsDisplayed={props.giftAreaIsDisplayed}
+                                                  userGaveLove={props.userGaveLove}
+                                                  userClickedGiftArea={props.userClickedGiftArea}
+                                />;
     	
     	}
 
