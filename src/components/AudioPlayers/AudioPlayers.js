@@ -7,8 +7,10 @@ import wit_woo from '../../alien_sounds/wit_woo.mp3';
 import boo from '../../alien_sounds/boo.mp3';
 
 const AudioPlayers = props => {
-		console.log('props.alienWisdomMessageMp3'  + props.alienWisdomMessageMp3);	
-
+		//This is a stateless component which contains the HTML5 audio tags for the sounds that we need to play within the application.
+		//Four of the sounds are stored locally and imported at the beginning of this file.
+		//audio_player_2 src reference will be generated after the users related alien tribe is calculated.
+		//It is a state called alienWisdomMessageMp3 (which belongs to the AppContainer container) and is passed into this component as a property.
 		return (<div>
 					<audio id ='audio_player_0'>
 						<source id='src_mp3_0' type='audio/mp3' src={alien_synth_melody} />
