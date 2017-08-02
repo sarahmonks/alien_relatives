@@ -3,9 +3,15 @@ import './alien_gifts_area.css';
 
 
 const AlienGiftsArea = props => {
-	console.log(props.userGaveLove);
-		//This is a stateless component used in the AlienInformation component
-		//To this component, we pass in a property called meetAlien (which is a method defined in the main AppContainer class).
+
+		//This is a stateless component used in the Content component
+		//To this component, we pass in the following states as properties (These states are defined in AppContainer):
+		//giftAreaIsDisplayed (true or false)
+		//qtyOfLoveReceived (integer)
+		//userGaveLove (true or false)
+		//And we pass in the following method as a property (defined in AppContainer)
+		//giveLove (This method takes in true or false as a parameter)
+
 		return (<div id="alien_gifts_area" className={(props.giftAreaIsDisplayed === true ? 'show': '')}>
 					<div className="background_color"></div>
 
