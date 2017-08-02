@@ -3,7 +3,14 @@ import './speech_bubble.css';
 
 
 const SpeechBubble = props => {
-		//This is a stateless component which displays the english translation of the wisdom message the alien brings to the user.
+		//This is a stateless component used in the Content component
+		//It contains the HTML which displays the english translation of the wisdom message the alien brings to the user.
+
+   		//To this component, we pass in the following states as properties (These states are defined in AppContainer):	
+		//wisdomMessageEnglish (string)
+		//userChoseToPlayMessage (boolean)
+		//userClickedGiftArea (boolean)
+		//userGaveLove (boolean)
 
 	const userClickedGiftArea = props.userClickedGiftArea;
 	const userGaveLove = props.userGaveLove;

@@ -6,11 +6,12 @@ const AlienGiftsArea = props => {
 
 		//This is a stateless component used in the Content component
 		//This component contains the HTML to display the area where the user can give a gift(love) or not.
-		
+
 		//To this component, we pass in the following states as properties (These states are defined in AppContainer):
-		//giftAreaIsDisplayed (boolean)
 		//qtyOfLoveReceived (integer)
+		//giftAreaIsDisplayed (boolean)
 		//userGaveLove (boolean)
+		
 		//And we pass in the following method as a property (defined in AppContainer)
 		//giveLove (This method takes in true or false as a parameter)
 

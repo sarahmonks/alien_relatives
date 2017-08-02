@@ -10,12 +10,20 @@ const CupAndSaucer = props => {
 		//This is a stateless component used in the Content component
 		//It displays the cup and saucer and alien image files. We use CSS classes to animated the cup and saucer after a user chooses to "meet"
 		//their related alien tribe.
-		//In this component, we will use the states userChoseToMeetAlien and cupAndSaucerHaveArrived (defined in the AppContainer class) 
-		//to determine which CSS classes should be output within the html tags
 
+  		//To this component, we pass in the following states as properties (These states are defined in AppContainer):
+		//alienTribeImage (string)
+		//alienTribeImageHands (string)
+		//userChoseToMeetAlien (boolean)
+		//cupAndSaucerHaveArrived (boolean)
+
+  		//And we pass in the following method as a property (defined in AppContainer):
+		//playAlienMessage (parameters: none)		
+
+		//use the 'classnames' module to output different CSS classes depending on the current state.
  	const className = cn('some-default-class', {
-      'rotate_cup_and_saucer_animation move_animation': (props.userChoseToMeetAlien === true  && props.cupAndSaucerHaveArrived === false),
-      'full_position': (props.userChoseToMeetAlien === true  && props.cupAndSaucerHaveArrived === true)
+      					'rotate_cup_and_saucer_animation move_animation': (props.userChoseToMeetAlien === true  && props.cupAndSaucerHaveArrived === false),
+      					'full_position': (props.userChoseToMeetAlien === true  && props.cupAndSaucerHaveArrived === true)
     });
 
 	return (<div id="cup_and_saucer_container" className={className}>

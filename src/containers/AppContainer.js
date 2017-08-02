@@ -40,9 +40,9 @@ class AppContainer extends Component {
 			userClickedGiftArea: false,
 			userGaveLove: false
 		};
+		this.createXHR = this.createXHR.bind(this);
 		this.submitForm = this.submitForm.bind(this);
 		this.submitFormCallback = this.submitFormCallback.bind(this);
-		this.createXHR = this.createXHR.bind(this);
 		this.meetAlien = this.meetAlien.bind(this);
 		this.timeAnimation = this.timeAnimation.bind(this);
 		this.playAlienMessage = this.playAlienMessage.bind(this);
@@ -120,13 +120,6 @@ class AppContainer extends Component {
 			}
 
 	}
-	timeAnimation(){
-		//alien has now arrived in the cup and saucer so set cupAndSaucerHaveArrived to true	
-		this.setState({cupAndSaucerHaveArrived: true}); 	
-		//clear the interval as we will only want to run this method once.
-		clearInterval(intvAnimation);
-
-	}
 	meetAlien (userChoseToMeetAlien){
 		//This method is called when a user is asked if they would like to meet the alien (in the AlienInformation component).
 		//'yes' and 'no' buttons (with onClick listeners for this function) exist in the MeetAlienButtons component.
@@ -148,6 +141,13 @@ class AppContainer extends Component {
 			self = this;
 			intvAnimation = setInterval(function(){self.timeAnimation();}, 10000);
 		}
+	}
+	timeAnimation(){
+		//alien has now arrived in the cup and saucer so set cupAndSaucerHaveArrived to true	
+		this.setState({cupAndSaucerHaveArrived: true}); 	
+		//clear the interval as we will only want to run this method once.
+		clearInterval(intvAnimation);
+
 	}
 	playAlienMessage (){
 		//This method is called when a user has chosen to play the message (i.e presses the play_message button)
@@ -221,10 +221,10 @@ class AppContainer extends Component {
 	updateLoveCallback (){
 		//this is the callback function which is called when the ajax response comes back from giveLove.
 		if(xmlhttpGiveLove.readyState == 4 && xmlhttpGiveLove.status == 200){
-			//we receive the new quantity of love back in our response and store in newQtyOfLove 
+			//we receive the new quantity of love back in our response and store in local variable newQtyOfLove 
 			var newQtyOfLove = xmlhttpGiveLove.responseText;
 			//update the qtyOfLoveReceived state with our new value
-			this.setState({qtyOfLoveReceived:newQtyOfLove}); 
+			this.setState({qtyOfLoveReceived: newQtyOfLove}); 
 
 		}
 
@@ -234,8 +234,7 @@ class AppContainer extends Component {
 		clearInterval(intvHideGifts);
 	}
 	resetGiftsAreaStates (){
-		//This method is used 
-		console.log('reset');
+		//This method is used to reset the gift area states in case the gift area has already been displayed and hidden respectively since the application loaded.
 		this.setState({userClickedGiftArea: false}); 	
 		this.setState({userGaveLove: false}); 	
 
@@ -254,7 +253,7 @@ class AppContainer extends Component {
 									alienTribeName={this.state.alienTribeName} 
 									alienTribeImage={this.state.alienTribeImage}
 									alienTribeImageHands={this.state.alienTribeImageHands} 
-									alienWisdomMessageMp3={this.state.alienWisdomMessageMp3} 
+
 									wisdomMessageEnglish={this.state.wisdomMessageEnglish}
 									qtyOfLoveReceived={this.state.qtyOfLoveReceived}
 

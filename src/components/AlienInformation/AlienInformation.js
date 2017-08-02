@@ -9,27 +9,29 @@ const AlienInformation = props => {
     //This component contains the HTML to display information about the related Alien tribe.
     
     //To this component, we pass in the following states as properties (These states are defined in AppContainer):
-    //alienTribeName (string)
     //firstName (string)
+    //alienTribeName (string)
     //userChoseToMeetAlien (boolean)
     //resultMessageIsDisplayed (boolean)
     //cupAndSaucerHaveArrived (boolean)
     //giftAreaIsDisplayed (boolean)
-    //userGaveLove (boolean)
     //userClickedGiftArea (boolean)
+    //userGaveLove (boolean)
+
     //And we pass in the following method as a property (defined in AppContainer):
-    //meetAlien (This method takes in true or false as a parameter)
+    //meetAlien (parameter: userChoseToMeetAlien (boolean))
+
 		const resultMessageIsDisplayed= props.resultMessageIsDisplayed;
 
 		let resultMessageArea = null;
     	if (resultMessageIsDisplayed) {
-      		resultMessageArea = <ResultMessage userChoseToMeetAlien={props.userChoseToMeetAlien} 
+      		resultMessageArea = <ResultMessage  alienTribeName={props.alienTribeName}
+                        userChoseToMeetAlien={props.userChoseToMeetAlien} 
                         resultMessageIsDisplayed={props.resultMessageIsDisplayed}
       									cupAndSaucerHaveArrived={props.cupAndSaucerHaveArrived}
       									giftAreaIsDisplayed={props.giftAreaIsDisplayed}
-      									alienTribeName={props.alienTribeName}
-      									userGaveLove={props.userGaveLove}
       									userClickedGiftArea={props.userClickedGiftArea}
+                        userGaveLove={props.userGaveLove}
       									/>;
     	} else {
 

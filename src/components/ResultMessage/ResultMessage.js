@@ -13,15 +13,16 @@ const ResultMessage = props => {
         //resultMessageIsDisplayed (boolean)
         //cupAndSaucerHaveArrived (boolean)
         //giftAreaIsDisplayed (boolean)
-        //userGaveLove (boolean)
         //userClickedGiftArea (boolean)
+        //userGaveLove (boolean)
+
 
 		const userChoseToMeetAlien = props.userChoseToMeetAlien;
 		const cupAndSaucerHaveArrived = props.cupAndSaucerHaveArrived;
 		const giftAreaIsDisplayed= props.giftAreaIsDisplayed;
-		const userGaveLove= props.userGaveLove;
 		const userClickedGiftArea=props.userClickedGiftArea;
-		const resultMessageIsDisplayed=props.resultMessageIsDisplayed;
+        const userGaveLove= props.userGaveLove;
+
 		let output = null;
     	if (cupAndSaucerHaveArrived) {
     		if (giftAreaIsDisplayed) {

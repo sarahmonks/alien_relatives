@@ -8,7 +8,7 @@ const OriginalForm = props => {
     //This component contains the HTML for the original form where the user submits their name.
 
     //To this component, we pass in the following method as a property (defined in AppContainer):
-    //submitForm
+    //submitForm (parameters: none)
 
 		return (<div>
 					<h2>What Alien tribe are you related to?</h2>
