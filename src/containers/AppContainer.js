@@ -47,9 +47,9 @@ class AppContainer extends Component {
 		this.timeAnimation = this.timeAnimation.bind(this);
 		this.playAlienMessage = this.playAlienMessage.bind(this);
 		this.showGifts = this.showGifts.bind(this);
-		this.hideGifts = this.hideGifts.bind(this);
 		this.giveLove = this.giveLove.bind(this);
 		this.updateLoveCallback = this.updateLoveCallback.bind(this);
+		this.hideGifts = this.hideGifts.bind(this);
 		this.resetGiftsAreaStates = this.resetGiftsAreaStates.bind(this);
 		this.clearTimers = this.clearTimers.bind(this);
 		
@@ -91,7 +91,7 @@ class AppContainer extends Component {
 		}
 	}
 	submitFormCallback (){
-			//this is the callback function which is called when the ajax response comes back.
+			//this is the callback function which is called when the ajax response comes back from the submitForm method.
 			if(xmlhttpSubmitForm.readyState == 4 && xmlhttpSubmitForm.status == 200){
 				//split the response into substrings at the string [BRK] and store into an array-responseDataArray
 				var responseDataArray = xmlhttpSubmitForm.responseText.split("[BRK]");
@@ -102,7 +102,7 @@ class AppContainer extends Component {
 				this.setState({alienTribeId: alienTribeResultsArray['alienTribeId']}); 
 				this.setState({alienTribeName: alienTribeResultsArray['alienTribeName']}); 
 				this.setState({alienTribeImage: app_root_url + alienTribeResultsArray['alienTribeImage']});
-				console.log(alienTribeResultsArray['alienTribeImage']);
+
 				this.setState({alienTribeImageHands: app_root_url + alienTribeResultsArray['alienTribeImageHands']});
 
 				this.setState({wisdomMessageEnglish: alienTribeResultsArray['wisdomMessageEnglish']}); 
@@ -189,14 +189,15 @@ class AppContainer extends Component {
 
 	giveLove (userGaveLove){
 		//This method is called when a user chooses to give love or not in the AlienGiftsArea
+		//clear timers first in case there are any animations still running.
 		this.clearTimers();
-		//when user presses a gift button, wait 3 seconds and then call the hideGifts function to fade out the gifts area
+		//when this method is called, wait 3 seconds and then call the hideGifts function to fade out the gifts area
 		var self;
 		self = this;
 		intvHideGifts = setInterval(function(){self.hideGifts();}, 3000);
 		this.setState({userClickedGiftArea: true}); 	
 		this.setState({userGaveLove: userGaveLove}); 	
-		console.log(this.state.userGaveLove);
+
 		if(userGaveLove){
 			//play the "wit_woo" audio file which is stored in audio player 3
 			this.audio_player_3.play();
@@ -230,6 +231,7 @@ class AppContainer extends Component {
 
 	}
 	hideGifts (){
+		//set the giftAreaIsDisplayed state to false. This will then hide the AlienGiftsArea
 		this.setState({giftAreaIsDisplayed: false}); 
 		clearInterval(intvHideGifts);
 	}
