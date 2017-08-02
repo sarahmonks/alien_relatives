@@ -15,4 +15,4 @@ import './css/font-awesome.css';
 ReactDOM.render(<AppContainer />, document.getElementById('root'));
 
 
-registerServiceWorker();
+registerServiceWorker.unregister;
