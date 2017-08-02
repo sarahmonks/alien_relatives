@@ -269,9 +269,10 @@ class AppContainer extends Component {
 									userGaveLove={this.state.userGaveLove}
 
 									submitForm={this.submitForm} 
+									meetAlien={this.meetAlien} 
 									playAlienMessage={this.playAlienMessage}		
 									giveLove={this.giveLove}
-									meetAlien={this.meetAlien} 
+
 
 						/>
 						<AudioPlayers alienWisdomMessageMp3={this.state.alienWisdomMessageMp3} />
