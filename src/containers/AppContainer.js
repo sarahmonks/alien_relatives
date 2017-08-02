@@ -22,7 +22,6 @@ class AppContainer extends Component {
 	constructor(props) {
     		super(props);
     		this.state = {
-			originalFormIsDisplayed: true,
 			firstName: '',
 			alienTribeId: 0,
 			alienTribeName: '',
@@ -30,6 +29,8 @@ class AppContainer extends Component {
 			alienTribeImageHands: '',
 			alienWisdomMessageMp3: '',
 			wisdomMessageEnglish: '',
+			qtyOfLoveReceived: 0,
+			originalFormIsDisplayed: true,
 			userChoseToMeetAlien: false,
 			resultMessageIsDisplayed: false,
 			cupAndSaucerHaveArrived: false,
@@ -37,8 +38,7 @@ class AppContainer extends Component {
 			giftAreaIsDisplayed: false,
 			userWasPromptedToGiveLove: false,
 			userClickedGiftArea: false,
-			userGaveLove: false,
-			qtyOfLoveReceived: 0
+			userGaveLove: false
 		};
 		this.submitForm = this.submitForm.bind(this);
 		this.submitFormCallback = this.submitFormCallback.bind(this);
@@ -250,25 +250,28 @@ class AppContainer extends Component {
 		return(<div>
 					<Header />
 					<div id="container_wrapper" className="scrollable">
-						<Content submitForm={this.submitForm} 
+						<Content firstName={this.state.firstName} 
 									alienTribeName={this.state.alienTribeName} 
 									alienTribeImage={this.state.alienTribeImage}
 									alienTribeImageHands={this.state.alienTribeImageHands} 
 									alienWisdomMessageMp3={this.state.alienWisdomMessageMp3} 
+									wisdomMessageEnglish={this.state.wisdomMessageEnglish}
+									qtyOfLoveReceived={this.state.qtyOfLoveReceived}
+
 									originalFormIsDisplayed={this.state.originalFormIsDisplayed} 
-									firstName={this.state.firstName} 
-									meetAlien={this.meetAlien} 
 									userChoseToMeetAlien={this.state.userChoseToMeetAlien} 
 									resultMessageIsDisplayed={this.state.resultMessageIsDisplayed} 
 									cupAndSaucerHaveArrived={this.state.cupAndSaucerHaveArrived} 
-									playAlienMessage={this.playAlienMessage}
-									wisdomMessageEnglish={this.state.wisdomMessageEnglish}
+
 									userChoseToPlayMessage={this.state.userChoseToPlayMessage}
 									giftAreaIsDisplayed={this.state.giftAreaIsDisplayed}
-									qtyOfLoveReceived={this.state.qtyOfLoveReceived}
-									giveLove={this.giveLove}
-									userGaveLove={this.state.userGaveLove}
 									userClickedGiftArea={this.state.userClickedGiftArea}
+									userGaveLove={this.state.userGaveLove}
+
+									playAlienMessage={this.playAlienMessage}		
+									giveLove={this.giveLove}
+									meetAlien={this.meetAlien} 
+									submitForm={this.submitForm} 
 						/>
 						<AudioPlayers alienWisdomMessageMp3={this.state.alienWisdomMessageMp3} />
 					</div>

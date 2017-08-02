@@ -10,6 +10,24 @@ import './content.css';
 
 
 const Content = props => {
+
+		//This is a stateless component used in the AppContainer container
+		//This component contains several other components.
+
+   		//To this component, we pass in the following states as properties (These states are defined in AppContainer):
+		//originalFormIsDisplayed (boolean)
+		//alienTribeName (string)
+		//firstName (string)
+		//userChoseToMeetAlien (boolean)
+		//resultMessageIsDisplayed (boolean)
+		//cupAndSaucerHaveArrived (boolean)
+		//giftAreaIsDisplayed (boolean)
+		//userGaveLove (boolean)
+		//userClickedGiftArea (boolean)
+
+		//And we pass in the following method as a property (defined in AppContainer):
+		//submitForm
+		//meetAlien (This method takes in true or false as a parameter)
 		return (<div id="container">
 					<div id="content">
 						<Planet />
