@@ -36,7 +36,6 @@ class AppContainer extends Component {
 			cupAndSaucerHaveArrived: false,
 			userChoseToPlayMessage: false,
 			giftAreaIsDisplayed: false,
-			userWasPromptedToGiveLove: false,
 			userClickedGiftArea: false,
 			userGaveLove: false
 		};
