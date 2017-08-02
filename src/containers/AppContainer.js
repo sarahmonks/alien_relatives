@@ -15,7 +15,7 @@ var intvShowGifts;
 var intvHideGifts;
 //the root of the url where the images and mp3s for the app are located.
 //The php server files which connect to the database are also located here
-var app_root_url = 'http://www.gamuzic.com/alien_relatives/';
+var app_root_url = 'https://www.gamuzic.com/alien_relatives/';
 
 class AppContainer extends Component { 
 	//This class is the main component of the application.
