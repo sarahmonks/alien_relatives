@@ -9,10 +9,10 @@ In order to set up the application on your work station do the following:
 
 cd alien_relatives 
 
-5. Install your npm dependencies in this folder, using the following command (Note: make sure you have node installed globally first)
+5. Install your npm dependencies in this folder, using the following command (Note: make sure you have node installed globally first)  
 npm install
 
-6. Now the project is set up with all dependencies, type the following command to run the application
+6. Now the project is set up with all dependencies, type the following command to run the application  
 npm run start
 
 
@@ -42,8 +42,7 @@ In terms of folder structure all component folders exist on the same level withi
 Within each component folder resides also a CSS file with styles corresponding to that particular component.
 
 
-Remote Requests
-
-This project makes requests to a remote origin (durnig form submission) where an API (which was built with PHP) resides.
-The API connects to a database using mySQL in order to retrieve information about the Alien Tribes.
+Remote Requests  
+This project makes requests to a remote origin (durnig form submission) where an API (which was built with PHP) resides.  
+The API connects to a database using mySQL in order to retrieve information about the Alien Tribes.  
 Some of the mp3 files used throughout the application also reside in this remote origin.
