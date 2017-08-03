@@ -37,8 +37,11 @@ Structure of components in terms of where/how they are rendered (Not folder stru
 
 
 e.g The ResultMessage component and the MeetAlienButtons component are both used within the AlienInformation component.
+In terms of folder structure all component folders exist on the same level within the src/components folder.
+Within each component folder resides also a CSS file with styles corresponding to that particular component.
 
 
-
-This project makes requests to a remote origin where an API (which was built with PHP).
+Remote Requests
+This project makes requests to a remote origin (durnig form submission) where an API (which was built with PHP) resides.
 The API connects to a database using mySQL in order to retrieve information about the Alien Tribes.
+Some of the mp3 files used throughout the application also reside in this remote origin.
