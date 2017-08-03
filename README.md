@@ -5,8 +5,7 @@ In order to set up the application on your work station do the following:
 1. Create a new folder (e.g alien_relatives) on your computer to hold your project
 2. Download the files to this folder
 3. Open the command line
-4. Navigate to your project folder in the command line e.g 
-
+4. Navigate to your project folder in the command line e.g    
 cd alien_relatives 
 
 5. Install your npm dependencies in this folder, using the following command (Note: make sure you have node installed globally first)  
